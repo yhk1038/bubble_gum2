@@ -1,0 +1,31 @@
+<form class="form-horizontal" action="<%= @path %>" method="post" style="margin-top: 50px; padding-right: 200px;">
+    <div class="form-group">
+        <label for="input_content" class="col-sm-2 control-label"><%= "user_id" %></label>
+        <div class="col-sm-10">
+              <select name="user_id" class="form-control">
+                  <% User.all.each do |u| %>
+                  <option value="<%= u.id %>" <% unless @post.nil? %><%= "selected" if @post.user_id == u.id %><% end %>><%= u.name %></option>
+                  <% end %>
+              </select>
+        </div>
+    </div>
+    <% Post.create_permitted_attr(["content", "user_id"]).each do |at|%>
+      <div class="form-group">
+            <label for="input_<%= at %>" class="col-sm-2 control-label"><%= at %></label>
+            <div class="col-sm-10">
+                  <input type="text" name="<%= at %>" class="form-control" id="input_<%= at %>" placeholder="<%= at %>" value="<%= eval("@post.#{at} unless @post.nil?")%>">
+            </div>
+      </div>
+    <% end %>
+    <div class="form-group">
+        <label for="input_content" class="col-sm-2 control-label"><%= "content" %></label>
+        <div class="col-sm-10">
+              <textarea class="form-control" style="height:400px;" id="input_<%= "content" %>" placeholder="<%= "content" %>" name="content"><%= eval("@post.content unless @post.nil?")%></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-warning btn-lg" style="float:right">아아!</button>
+        </div>
+    </div>
+</form>
