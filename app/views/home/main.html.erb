@@ -33,44 +33,107 @@
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
 
 
-          <!-- <div class="blowing_input">
-            <form>
-              <input type="text" name="FirstName" value="Mickey"><br>
-              <input type="text" name="LastName" value="Mouse"><br>
-              <input type="submit" value="Submit">
-            </form>
-          </div> -->
-
-          <!-- Button trigger modal -->
-          <div class="btn btn-primary btn-lg" id="button_form" data-toggle="modal" data-target="#myModal">
-            <input type="radio"> blahblah
-            <input type="radio"> image
-            <input type="radio"> linked news
-            <input type="radio"> information
-          </div>
         </div>
 
 
+        <!-- Button trigger modal -->
+        <div id="button_form">
+          <div class="" data-toggle="modal" data-target="#myModal1">image</div>
+          <div class="" data-toggle="modal" data-target="#myModal2">information</div>
+          <div class="" data-toggle="modal" data-target="#myModal3">news</div>
+          <div class="" data-toggle="modal" data-target="#myModal4">blahblah...</div>
+        </div>
 
-
-        <!-- Modal:form tag ----------------------------->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!-- Modal1 : image form tag ----------------------------->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
+            <div class="blowing_mark">image</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
             <div class="blowing_input">
 
               <div class="" style="text-align:center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel1">Modal title</h4>
               </div>
 
-              <div class="" style="margin:auto; width:350px; height:250px; margin-top:20px; background-color:white; color:black">
-                <form>
-                  <input type="text" name="FirstName" value="Mickey"><br>
-                  <input type="text" name="LastName" value="Mouse"><br>
-                  <input type="submit" value="Submit">
-                </form>
+              <form style="text-align:center; margin-top:20px;">
+                <div class="input_box">
+                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+                  <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+                  <input class="input_file" type="file" id="tag_file" accept="image/*" onchange="loadFile(event)">
+                </div>
+                <input class="input_submit" type="submit" value="BLOW">
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal2 : information form tag ----------------------------->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="blowing_mark">information</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            <div class="blowing_input">
+
+              <div class="" style="text-align:center">
+                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
               </div>
 
+              <form style="text-align:center; margin-top:20px;">
+                <div class="input_box">
+                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+                  <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+                </div>
+                <input class="input_submit" type="submit" value="BLOW">
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal3 : news form tag ----------------------------->
+        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="blowing_mark">news</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            <div class="blowing_input">
+
+              <div class="" style="text-align:center">
+                <h4 class="modal-title" id="myModalLabel3">Modal title</h4>
+              </div>
+
+              <form style="text-align:center; margin-top:20px;">
+                <div class="input_box">
+                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+                  <input class="input_username" type="text" name="text" placeholder="Link Address"><br>
+                  <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+                </div>
+                <input class="input_submit" type="submit" value="BLOW">
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal4 : blahblah form tag ----------------------------->
+        <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="blowing_mark">blah blah</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            <div class="blowing_input">
+
+              <div class="" style="text-align:center">
+                <h4 class="modal-title" id="myModalLabel4">Modal title</h4>
+              </div>
+
+              <form style="text-align:center; margin-top:20px;">
+                <div class="input_box">
+                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+                  <textarea class="input_text" style="height:200px" type="text" name="text" placeholder="TEXT"></textarea><br>
+                </div>
+                <input class="input_submit" type="submit" value="BLOW">
+              </form>
             </div>
           </div>
         </div>
