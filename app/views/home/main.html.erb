@@ -19,7 +19,8 @@
     <div> <!-- title -->
       <h1 style="margin-top:0px;"><%= @post.title %></h1>
       <div style="display:inline-block"><%= @post.written_at %></div>
-      <div style="display:inline-block; float:right">조회수 , 댓글수 <%= @post.replies.count %>, 재구성%</div>
+      <div style="display:inline-block; float:right">조회수 <span id="reply_count">0</span> <a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a> , 댓글수 <%= @post.replies.count %>, 재구성%</div>
+      <input type="hidden" id="userId" value="2">
     </div>
 
 
