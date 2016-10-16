@@ -10,7 +10,7 @@
 
     <h4><%= @post.reporter_name %> | <%= @post.from %></h4>
 
-  </div>
+  </div> <!--col-md-2-->
 
 
 
@@ -31,148 +31,191 @@
       <div class="row">
 
         <div class="col-md-4" style="margin:none">
+          <!-- article image-->
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
 
-
-        </div>
-
-
-        <!-- Button trigger modal -->
-        <div id="button_form">
-          <div class="" data-toggle="modal" data-target="#myModal1">image</div>
-          <div class="" data-toggle="modal" data-target="#myModal2">information</div>
-          <div class="" data-toggle="modal" data-target="#myModal3">news</div>
-          <div class="" data-toggle="modal" data-target="#myModal4">blahblah...</div>
-        </div>
-
-        <!-- Modal1 : image form tag ----------------------------->
-        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="blowing_mark">image</div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-            <div class="blowing_input">
-
-              <div class="" style="text-align:center">
-                <h4 class="modal-title" id="myModalLabel1">Modal title</h4>
-              </div>
-
-              <form style="text-align:center; margin-top:20px;">
-                <div class="input_box">
-                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-                  <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
-                  <input class="input_file" type="file" id="tag_file" accept="image/*" onchange="loadFile(event)">
-                </div>
-                <input class="input_submit" type="submit" value="BLOW">
-              </form>
-            </div>
+          <!-- reply1_image -->
+          <div class="reply_gum">
+            <div class="reply_gum1_image" style="background-image:url(https://pbs.twimg.com/profile_images/655806911346937856/zyoFJf6W.jpg);"></div>
+            <span class="reply_username">username |</span><br>
+            제가 아끼는 짤방입니다.<br>
+            <div style="float:right">
+              <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> 100
+              <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> 1
+            </div><br>
           </div>
-        </div>
 
-        <!-- Modal2 : information form tag ----------------------------->
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="blowing_mark">information</div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-            <div class="blowing_input">
-
-              <div class="" style="text-align:center">
-                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+          <!-- reply2&4_information/blahblah-->
+          <div class="reply_gum">
+            <div class="reply_gum2">
+              <div class="reply_gum2_text">
+                <span class="reply_username">username |</span><br>
+                설명을 하는 댓글입니다. 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ sdfsfdsfdsfdssdfsdfdsfsd
               </div>
-
-              <form style="text-align:center; margin-top:20px;">
-                <div class="input_box">
-                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-                  <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
-                </div>
-                <input class="input_submit" type="submit" value="BLOW">
-              </form>
             </div>
+            <div style="float:right">
+              <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> 34
+              <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> 0
+            </div><br>
           </div>
-        </div>
 
-        <!-- Modal3 : news form tag ----------------------------->
-        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="blowing_mark">news</div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-            <div class="blowing_input">
-
-              <div class="" style="text-align:center">
-                <h4 class="modal-title" id="myModalLabel3">Modal title</h4>
+          <!-- reply3_link-->
+          <div class="reply_gum">
+            <div class="reply_gum2">
+              <div class="reply_gum2_text">
+                <span class="reply_username">username |</span><br>
+                관련 뉴스 임다 읽어보세여~~~
               </div>
-
-              <form style="text-align:center; margin-top:20px;">
-                <div class="input_box">
-                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-                  <input class="input_username" type="text" name="text" placeholder="Link Address"><br>
-                  <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
-                </div>
-                <input class="input_submit" type="submit" value="BLOW">
-              </form>
+              <a href="#"><div class="reply_gum3_link"></div></a>
             </div>
+            <!-- <div style="display:inline-block; float:left; cursor:pointer">
+              <span class="glyphicon glyphicon-chevron-right" style="top:2px" aria-hidden="true"></span> go to news
+            </div> -->
+            <div style="display:inline-block; float:right">
+              <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> 23
+              <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> 0
+            </div><br>
           </div>
-        </div>
 
-        <!-- Modal4 : blahblah form tag ----------------------------->
-        <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="blowing_mark">blah blah</div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div> <!--col-md-4(news)-->
 
-            <div class="blowing_input">
-
-              <div class="" style="text-align:center">
-                <h4 class="modal-title" id="myModalLabel4">Modal title</h4>
-              </div>
-
-              <form style="text-align:center; margin-top:20px;">
-                <div class="input_box">
-                  <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-                  <textarea class="input_text" style="height:200px" type="text" name="text" placeholder="TEXT"></textarea><br>
-                </div>
-                <input class="input_submit" type="submit" value="BLOW">
-              </form>
-            </div>
-          </div>
-        </div>
-
-<% post = @post %>
-<%
-    content = post.content
-    content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
-    content2 = content2.split
-    arr = []
-    i = 1
-    limit = 20
-    loop do
-        break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
-        arr << content2[(limit * (i - 1))..((limit * i)-1)]
-        i += 1
-    end
-    arr2 = []
-    arr.each do |e|
-        arr2 << e.join(' ')
-    end
-    arr3 = []
-    j = 1
-    arr2.each do |f|
-        arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
-        j += 1
-    end
-    content3 = arr3.join
-%>
+        <% post = @post %>
+        <%
+            content = post.content
+            content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
+            content2 = content2.split
+            arr = []
+            i = 1
+            limit = 20
+            loop do
+                break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
+                arr << content2[(limit * (i - 1))..((limit * i)-1)]
+                i += 1
+            end
+            arr2 = []
+            arr.each do |e|
+                arr2 << e.join(' ')
+            end
+            arr3 = []
+            j = 1
+            arr2.each do |f|
+                arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
+                j += 1
+            end
+            content3 = arr3.join
+        %>
         <div class="col-md-8 article_text">
           <p class="post_content"><%= content3.html_safe %></p>
         </div>
 
 
+
       </div>
     </div>
 
-  </div>
+  </div> <!--col-md-8-->
+
+
+  <div class="col-md-2">
+    <!-- Button trigger modal -->
+    <div id="button_form">
+      <div class="" data-toggle="modal" data-target="#myModal1">image</div>
+      <div class="" data-toggle="modal" data-target="#myModal2">information</div>
+      <div class="" data-toggle="modal" data-target="#myModal3">news</div>
+      <div class="" data-toggle="modal" data-target="#myModal4">blahblah...</div>
+    </div>
+
+    <!-- Modal1 : image form tag ----------------------------->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="blowing_mark">image</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div class="blowing_input">
+
+          <div class="" style="text-align:center">
+            <h4 class="modal-title" id="myModalLabel1">Modal title</h4>
+          </div>
+
+          <form style="text-align:center; margin-top:20px;">
+            <div class="input_box">
+              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+              <input class="input_file" type="file" id="tag_file" accept="image/*" onchange="loadFile(event)">
+            </div>
+            <input class="input_submit" type="submit" value="BLOW">
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal2 : information form tag ----------------------------->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="blowing_mark">information</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div class="blowing_input">
+
+          <div class="" style="text-align:center">
+            <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+          </div>
+
+          <form style="text-align:center; margin-top:20px;">
+            <div class="input_box">
+              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+            </div>
+            <input class="input_submit" type="submit" value="BLOW">
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal3 : news form tag ----------------------------->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="blowing_mark">news</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div class="blowing_input">
+
+          <div class="" style="text-align:center">
+            <h4 class="modal-title" id="myModalLabel3">Modal title</h4>
+          </div>
+
+          <form style="text-align:center; margin-top:20px;">
+            <div class="input_box">
+              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+              <input class="input_username" type="text" name="text" placeholder="Link Address"><br>
+              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+            </div>
+            <input class="input_submit" type="submit" value="BLOW">
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal4 : blahblah form tag ----------------------------->
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="blowing_mark">blah blah</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="blowing_input">
+          <div class="" style="text-align:center">
+            <h4 class="modal-title" id="myModalLabel4">Modal title</h4>
+          </div>
+          <form style="text-align:center; margin-top:20px;">
+            <div class="input_box">
+              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
+              <textarea class="input_text" style="height:200px" type="text" name="text" placeholder="TEXT"></textarea><br>
+            </div>
+            <input class="input_submit" type="submit" value="BLOW">
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div> <!--col-md-2-->
+
 </div>
 
 

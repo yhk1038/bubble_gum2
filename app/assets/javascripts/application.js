@@ -34,7 +34,6 @@ document.onmouseup = function() {
   var getSelectText = '';
   getSelectText = selectText();
 
-
   if (getSelectText != ""){
     $("#button_form").fadeIn('fast');
   }
