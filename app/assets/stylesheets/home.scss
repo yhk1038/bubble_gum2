@@ -40,6 +40,11 @@ textarea:focus, input:focus, button:focus{
 .navbar-form {
   border : none;
   box-shadow :none;
+  padding: 0px 15px;
+}
+
+.glyphicon {
+  top:5px;
 }
 
 .form-control {
@@ -67,4 +72,43 @@ textarea:focus, input:focus, button:focus{
   box-shadow: none;
   border-bottom: 1px solid white;
   color: white;
+}
+
+
+
+/*************** contents ****************************/
+.reporter_image{
+  width:100px;
+  height:100px;
+  border:5px solid white;
+  margin:auto;
+  border-radius: 50%;
+  background-image:url(/sources/profile.png);
+  background-size:100%;
+  text-align:right;
+  line-height:9;
+}
+
+.reporter_mark {
+  width:35px;
+  height:35px;
+  position:relative;
+}
+
+.article_image {
+  position:relative;
+  width:100%;
+  border:10px solid white;
+  margin:auto;
+  border-radius: 50%;
+  padding:5px;
+  background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);
+  background-size:cover;
+  background-position: center center;
+}
+
+.article_image:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
