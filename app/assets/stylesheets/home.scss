@@ -101,8 +101,7 @@ textarea:focus, input:focus, button:focus{
   border:10px solid white;
   margin:auto;
   border-radius: 50%;
-  padding:5px;
-  background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);
+  
   background-size:cover;
   background-position: center center;
 }
@@ -112,3 +111,20 @@ textarea:focus, input:focus, button:focus{
 	display: block;
 	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
+
+.blowing_input {
+  position:relative;
+  width:500px;
+  height:500px;
+  border:10px solid white;
+  margin:auto;
+  border-radius: 50%;
+  background: linear-gradient(to right, $color_pink, $color_purple);
+  padding: 60px 15px;
+}
+
+// .blowing_input:before{
+// 	content: "";
+// 	display: block;
+// 	padding-top: 100%; 	/* initial ratio of 1:1*/
+// }
