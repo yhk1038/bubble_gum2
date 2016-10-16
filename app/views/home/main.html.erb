@@ -139,9 +139,33 @@
           </div>
         </div>
 
-
+<% post = @post %>
+<%
+    content = post.content
+    content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
+    content2 = content2.split
+    arr = []
+    i = 1
+    limit = 20
+    loop do
+        break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
+        arr << content2[(limit * (i - 1))..((limit * i)-1)]
+        i += 1
+    end
+    arr2 = []
+    arr.each do |e|
+        arr2 << e.join(' ')
+    end
+    arr3 = []
+    j = 1
+    arr2.each do |f|
+        arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
+        j += 1
+    end
+    content3 = arr3.join
+%>
         <div class="col-md-8 article_text">
-          <%= @post.content.html_safe %>
+          <p class="post_content"><%= content3.html_safe %></p>
         </div>
 
 
