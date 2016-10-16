@@ -20,8 +20,15 @@ class ReplyController < ApplicationController
   end
 
   def count_update
-    num = Reply.find(params[:reply_id]).like_count + 1
-    Reply.find(params[:reply_id]).increment(:like_count, num)
+    reply = Reply.find(params[:reply_id])
+    
+    unless reply.like_count.nil?
+      reply.like_count = reply.like_count + 1
+    else
+      reply.like_count = 0 + 1
+    end
+    reply.save
+    num = reply.like_count
     render json: { count: num }
   end
 
