@@ -1,3 +1,114 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color_pink : #ff007a; //pink
+$color_purple : #913dcc; //purple
+// $button_color1 : #7655ff; //purple-dark
+// $button_color2 : #8671ff; //purple-light
+
+
+
+body {
+  background: linear-gradient(to right, $color_pink, $color_purple);
+  color: #fff;
+  font-size: 17px;
+}
+
+textarea:focus, input:focus, button:focus{
+    outline: none;
+}
+
+/* _navbar.html **************************/
+.my_nav{
+  background: none;
+  border:none;
+}
+.my_nav-font_color{
+  font-size : 10pt;
+  text-shadow : none !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.my_nav-font_color:hover{
+  color: #aeaeae !important;
+  transition: color .25s ease;
+  -webkit-transition: color .25s ease; /* Safari */
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.navbar-form {
+  border : none;
+  box-shadow :none;
+  padding: 0px 15px;
+}
+
+.glyphicon {
+  top:5px;
+}
+
+.form-control {
+  height:34px;
+  padding: 0px 10px;
+  border : none;
+  border-radius: 0px;
+  box-shadow: none;
+  background: none;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #fff;
+  transition: color .25s ease;
+  -webkit-transition: color .25s ease;
+  text-shadow: none !important;
+}
+
+.form-control:hover::-webkit-input-placeholder {
+  color:#aeaeae;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+
+
+/*************** contents ****************************/
+.reporter_image{
+  width:100px;
+  height:100px;
+  border:5px solid white;
+  margin:auto;
+  border-radius: 50%;
+  background-image:url(/sources/profile.png);
+  background-size:100%;
+  text-align:right;
+  line-height:9;
+}
+
+.reporter_mark {
+  width:35px;
+  height:35px;
+  position:relative;
+}
+
+.article_image {
+  position:relative;
+  width:100%;
+  border:10px solid white;
+  margin:auto;
+  border-radius: 50%;
+  padding:5px;
+  background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);
+  background-size:cover;
+  background-position: center center;
+}
+
+.article_image:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}

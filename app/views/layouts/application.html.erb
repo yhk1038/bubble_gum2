@@ -19,10 +19,16 @@
   <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+  <!-------------------------------CUSTOM CSS--------------------------------------->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+
 </head>
-<body style="background: linear-gradient(to right, #F20381, #9D32BE); color: #fff; font-size: 17px;">
-  <div style="color: #fff; font-size: 17px;">
+
+<body>
+  <!-- <div style="color: #fff; font-size: 17px;">
     <%= yield %>
-  </div>
+  </div> -->
 </body>
+
 </html>

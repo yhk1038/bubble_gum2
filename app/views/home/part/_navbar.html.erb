@@ -8,36 +8,11 @@
 <!--        <div class="col-md-6"><a class="btn btn-default btn-lg" href="/users/sign_up">sign up</a></div>-->
 <!--    </div>-->
 <!--</div>-->
-<style>
-  .my_nav{
-    /*background: #000;*/
-    background: none;
-    border:none;
-  }
-  .my_nav-font_color{
-    font-size : 10pt;
-    text-shadow : none !important;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-  #user .my_nav-font_color{
-    color: #fff !important;
-    transition: color .25s ease;
-    -webkit-transition: color .25s ease; /* Safari */
-  }
-  #user .my_nav-font_color:hover{
-    color: #aeaeae !important;
-    transition: color .25s ease;
-    -webkit-transition: color .25s ease; /* Safari */
-  }
-  #logo_text{
-    font-weight: bold;
-    font-size: 20px;
-  }
-</style>
+
+
 <nav class="navbar navbar-default my_nav">
     <div class="container-fluid">
-        <div style="border-bottom: 2px solid #fff;">
+        <div style="border-bottom: 1px solid #fff;">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header col-md-8 col-sm-12">
 
@@ -55,25 +30,23 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
-                    <!--<li><a href="#">Link</a></li>-->
-                </ul>
 
                 <ul class="nav navbar-nav navbar-right" id="user">
                     <li><a href="/users/sign_in" class="my_nav-font_color">login</a></li>
                     <li><a href="/users/sign_up" class="my_nav-font_color">sign up</a></li>
                 </ul>
-                <form class="navbar-form navbar-left" role="search" style="float: right !important;">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+
+                <form class="navbar-form navbar-right" role="search">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                  <input type="text" class="form-control" placeholder="Search" onkeydown="javascript:if(event.keyCode==13){goPage('1');}">
+                  <!-- <button type="submit" class="search_btn">submit</button> -->
                 </form>
             </div><!-- /.navbar-collapse -->
         </div>
     </div><!-- /.container-fluid -->
 </nav>
+
+
 <script>
   // method: 'POST'
   // url: '/home/sample'
