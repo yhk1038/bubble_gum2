@@ -7,7 +7,13 @@ class HomeController < ApplicationController
 
   def main
   end
-
+  
+  def list
+  end
+  
+  def howto
+  end
+  
   def hanseuly
   end
 end
