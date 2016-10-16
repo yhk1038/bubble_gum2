@@ -1,3 +1,71 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color_pink : #ff007a; //pink
+$color_purple : #913dcc; //purple
+// $button_color1 : #7655ff; //purple-dark
+// $button_color2 : #8671ff; //purple-light
+
+
+
+body {
+  background: linear-gradient(to right, $color_pink, $color_purple);
+  color: #fff;
+  font-size: 17px;
+}
+
+textarea:focus, input:focus, button:focus{
+    outline: none;
+}
+
+/* _navbar.html **************************/
+.my_nav{
+  background: none;
+  border:none;
+}
+.my_nav-font_color{
+  font-size : 10pt;
+  text-shadow : none !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.my_nav-font_color:hover{
+  color: #aeaeae !important;
+  transition: color .25s ease;
+  -webkit-transition: color .25s ease; /* Safari */
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.navbar-form {
+  border : none;
+  box-shadow :none;
+}
+
+.form-control {
+  height:34px;
+  padding: 0px 10px;
+  border : none;
+  border-radius: 0px;
+  box-shadow: none;
+  background: none;
+}
+
+.form-control::-webkit-input-placeholder {
+  text-align: right;
+  color: #fff;
+  transition: color .25s ease;
+  -webkit-transition: color .25s ease;
+  text-shadow: none !important;
+}
+
+.form-control:hover::-webkit-input-placeholder {
+  color:#aeaeae;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 1px solid white;
+  color: white;
+}
