@@ -5,6 +5,12 @@ class HomeController < ApplicationController
   def entering
   end
 
+  def list
+  end
+
+  def howto
+  end
+
   def main
     @post = Post.last
     unless params[:id].nil?
