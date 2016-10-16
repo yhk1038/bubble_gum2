@@ -14,3 +14,39 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+
+//// Draged TEXT /////////////
+function selectText() {
+  var selectionText = "";
+  if (document.getSelection) {
+    selectionText = document.getSelection();
+  } else if (document.selection) {
+    selectionText = document.selection.createRange().text;
+  }
+  return selectionText;
+}
+
+document.onmouseup = function() {
+  var selectedText = '';
+  var getSelectText = '';
+  getSelectText = selectText();
+
+
+  if (getSelectText != ""){
+    $("#button_form").fadeIn('fast');
+  }
+  if (getSelectText == "") {
+    $("#button_form").fadeOut('fast');
+  }
+
+
+  if(getSelectText != '') {
+  	selectedText = getSelectText;
+  } else {
+	  return;
+  }
+  document.getElementById("myModalLabel").innerHTML = selectedText;
+}
