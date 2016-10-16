@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  get 'post/create'
+
+  get 'post/read'
+
+  get 'post/update'
+
+  get 'post/delete'
+
+  get 'gdj/create'
+
+  get 'gdj/read'
+
+  get 'gdj/update'
+
+  get 'gdj/delete'
+
+  get 'reply/create'
+
+  get 'reply/read'
+
+  get 'reply/update'
+
+  get 'reply/delete'
+
   root 'home#main'
   match "/:controller(/:action(/:id))", :via => [:get, :post]
   get 'home/index'
