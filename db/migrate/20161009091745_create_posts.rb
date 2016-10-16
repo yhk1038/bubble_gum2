@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration
             t.string  :title
             t.text    :content
             t.string  :written_at
+            t.string  :from
             t.string  :editor_name
             t.string  :editor_email
             t.string  :img_url
