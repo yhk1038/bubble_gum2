@@ -1,5 +1,6 @@
 class ReplyController < ApplicationController
   def create
+    
   end
 
   def read

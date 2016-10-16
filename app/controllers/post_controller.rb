@@ -1,14 +1,14 @@
 class PostController < ApplicationController
     
     # 기사 입력하는 페이지/ 기사 4개 입력 끝나서 주석처리함.
-    # def show
-    #     @path = post_create_path
-    #     @post = nil
-    #     unless params[:id].nil?
-    #         @post = Post.find(params[:id])
-    #         @path = "/post/update/#{params[:id]}"
-    #     end
-    # end
+    def show
+        @path = post_create_path
+        @post = nil
+        unless params[:id].nil?
+            @post = Post.find(params[:id])
+            @path = "/post/update/#{params[:id]}"
+        end
+    end
     
     def create
         # params = ActionController::Parameters.new({
