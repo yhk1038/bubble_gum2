@@ -133,8 +133,62 @@ textarea:focus, input:focus, button:focus{
   display:none;
 }
 
+//// modal //////////////////////////////////////////
+@media (min-width: 768px) {
+  .modal-dialog {
+    margin: 100px auto;
+  }
+}
 
+.blowing_mark {
+  background: white;
+  width: 100px;
+  height: 30px;
+  top: 15px;
+  position: relative;
+  color: black;
+  float: left;
+}
 
+.close {
+  font-size: 50px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 100;
+}
+
+.input_box {
+  width:350px;
+  height:250px;
+  background:white;
+  border:none;
+  padding: 5px 10px;
+  color:black;
+  margin: auto;
+}
+
+.input_box input, textarea {
+  font-size:12pt;
+  width:100%;
+  border:none;
+  padding:5px;
+}
+
+.input_username {
+  border-bottom: 1px solid $color_pink !important;
+}
+.input_text {
+  height:164px;
+}
+.input_submit {
+  margin-top:18px;
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+  border:5px solid white;
+  background: linear-gradient(to right, $color_pink, $color_purple);
+}
 
 .article_text {
   background-color:white;

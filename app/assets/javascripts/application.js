@@ -48,5 +48,8 @@ document.onmouseup = function() {
   } else {
 	  return;
   }
-  document.getElementById("myModalLabel").innerHTML = selectedText;
+  document.getElementById("myModalLabel1").innerHTML = selectedText;
+  document.getElementById("myModalLabel2").innerHTML = selectedText;
+  document.getElementById("myModalLabel3").innerHTML = selectedText;
+  document.getElementById("myModalLabel4").innerHTML = selectedText;
 }
