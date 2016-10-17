@@ -51,4 +51,9 @@ document.onmouseup = function() {
   document.getElementById("myModalLabel2").innerHTML = selectedText;
   document.getElementById("myModalLabel3").innerHTML = selectedText;
   document.getElementById("myModalLabel4").innerHTML = selectedText;
+  
+  document.getElementById("locationText1").innerHTML = selectedText;
+  document.getElementById("locationText2").innerHTML = selectedText;
+  document.getElementById("locationText3").innerHTML = selectedText;
+  document.getElementById("locationText4").innerHTML = selectedText;
 }

@@ -33,82 +33,85 @@
         <div class="col-md-4" style="margin:none">
           <!-- article image-->
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
-
-          <!-- reply1_image -->
-          <div class="reply_gum">
-            <div class="reply_gum1_image" style="background-image:url(https://pbs.twimg.com/profile_images/655806911346937856/zyoFJf6W.jpg);"></div>
-            <span class="reply_username">username |</span><br>
-            제가 아끼는 짤방입니다.<br>
-            <div style="float:right">
-              <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> 100
-              <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> 1
-            </div><br>
-          </div>
-
-          <!-- reply2&4_information/blahblah-->
-          <div class="reply_gum">
-            <div class="reply_gum2">
-              <div class="reply_gum2_text">
-                <span class="reply_username">username |</span><br>
-                설명을 하는 댓글입니다. 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ 혹은 그냥 주저리주저리~~~ sdfsfdsfdsfdssdfsdfdsfsd
+          
+          <% @post.replies.reorder("like_count desc").each do |reply| %>
+            <% if reply.option_num == 0 %>
+              <!-- reply1_image -->
+              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+                <div class="reply_gum1_image" style="background-image:url('<%= reply.img_url %>');"></div>
+                <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %><br>
+                <div style="float:right">
+                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
+                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                </div><br>
               </div>
-            </div>
-            <div style="float:right">
-              <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> 34
-              <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> 0
-            </div><br>
-          </div>
-
-          <!-- reply3_link-->
-          <div class="reply_gum">
-            <div class="reply_gum2">
-              <div class="reply_gum2_text">
-                <span class="reply_username">username |</span><br>
-                관련 뉴스 임다 읽어보세여~~~
+              
+            <% elsif reply.option_num == 1 %>
+              <!-- reply2&4_information/blahblah-->
+              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+                <div class="reply_gum2">
+                  <div class="reply_gum2_text">
+                    <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %>
+                  </div>
+                </div>
+                <div style="float:right">
+                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
+                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                </div><br>
               </div>
-              <a href="#"><div class="reply_gum3_link"></div></a>
-            </div>
-            <!-- <div style="display:inline-block; float:left; cursor:pointer">
-              <span class="glyphicon glyphicon-chevron-right" style="top:2px" aria-hidden="true"></span> go to news
-            </div> -->
-            <div style="display:inline-block; float:right">
-              <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> 23
-              <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> 0
-            </div><br>
-          </div>
-
+              
+            <% elsif reply.option_num == 2 %>
+              <!-- reply3_link-->
+              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+                <div class="reply_gum2">
+                  <div class="reply_gum2_text">
+                    <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %>
+                  </div>
+                  <a href="<%= reply.link %>"><div class="reply_gum3_link"></div></a>
+                </div>
+                <!-- <div style="display:inline-block; float:left; cursor:pointer">
+                  <span class="glyphicon glyphicon-chevron-right" style="top:2px" aria-hidden="true"></span> go to news
+                </div> -->
+                <div style="display:inline-block; float:right">
+                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
+                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                </div><br>
+              </div>
+              
+            <% elsif reply.option_num == 3 %>
+              <!-- reply2&4_information/blahblah-->
+              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+                <div class="reply_gum2">
+                  <div class="reply_gum2_text">
+                    <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %>
+                  </div>
+                </div>
+                <div style="float:right">
+                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
+                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                </div><br>
+              </div>
+            <% end %>
+          <% end %>
+          
         </div> <!--col-md-4(news)-->
 
-        <% post = @post %>
-        <%
-            content = post.content
-            content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
-            content2 = content2.split
-            arr = []
-            i = 1
-            limit = 20
-            loop do
-                break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
-                arr << content2[(limit * (i - 1))..((limit * i)-1)]
-                i += 1
-            end
-            arr2 = []
-            arr.each do |e|
-                arr2 << e.join(' ')
-            end
-            arr3 = []
-            j = 1
-            arr2.each do |f|
-                arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
-                j += 1
-            end
-            content3 = arr3.join
-        %>
         <div class="col-md-8 article_text">
-          <p class="post_content"><%= content3.html_safe %></p>
+          <p class="post_content"><%= @post.content_to_split_span_block.html_safe %></p>
         </div>
-
-
+        <style>
+          .ggum_ddak_ji, .ggum_ddak_ji_in{
+            background: #aeaeae;
+            color: #fff;
+            cursor: pointer;
+            transition: all .2s;
+          }
+          .ggum_ddak_ji:hover, .ggum_ddak_ji_in:hover{
+            background: #e9e9e9;
+            color: blue;
+            font-size: 18px;
+          }
+        </style>
 
       </div>
     </div>
@@ -137,11 +140,16 @@
             <h4 class="modal-title" id="myModalLabel1">Modal title</h4>
           </div>
 
-          <form style="text-align:center; margin-top:20px;">
+          <form style="text-align:center; margin-top:20px;" action="/reply/create" method="post" enctype="multipart/form-data">
             <div class="input_box">
-              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
-              <input class="input_file" type="file" id="tag_file" accept="image/*" onchange="loadFile(event)">
+              <input type="hidden" name="location" class="location_input" value="">
+              <textarea type="hidden" name="location_text" id="locationText1" style="display:none"></textarea>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+              <input type="hidden" name="option_num" value="0">
+              <input class="input_username" type="text" name="user_name" placeholder="ID" ><br>
+              <textarea class="input_text" type="text" name="content" placeholder="TEXT"></textarea><br>
+              <!--<input class="input_file" type="file" id="tag_file" accept="image/*" onchange="loadFile(event)">-->
+              <%= file_field 'upload', 'datafile', class: "input_file", id: "tag_file" %>
             </div>
             <input class="input_submit" type="submit" value="BLOW">
           </form>
@@ -160,10 +168,14 @@
             <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
           </div>
 
-          <form style="text-align:center; margin-top:20px;">
+          <form style="text-align:center; margin-top:20px;" action="/reply/create" method="post" enctype="multipart/form-data">
             <div class="input_box">
-              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+              <input type="hidden" name="location" class="location_input" value="">
+              <textarea type="hidden" name="location_text" id="locationText2" style="display:none"></textarea>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+              <input type="hidden" name="option_num" value="1">
+              <input class="input_username" type="text" name="user_name" placeholder="ID" ><br>
+              <textarea class="input_text" type="text" name="content" placeholder="TEXT"></textarea><br>
             </div>
             <input class="input_submit" type="submit" value="BLOW">
           </form>
@@ -182,11 +194,15 @@
             <h4 class="modal-title" id="myModalLabel3">Modal title</h4>
           </div>
 
-          <form style="text-align:center; margin-top:20px;">
+          <form style="text-align:center; margin-top:20px;" action="/reply/create" method="post" enctype="multipart/form-data">
             <div class="input_box">
-              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-              <input class="input_username" type="text" name="text" placeholder="Link Address"><br>
-              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+              <input type="hidden" name="location" class="location_input" value="">
+              <textarea type="hidden" name="location_text" id="locationText3" style="display:none"></textarea>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+              <input type="hidden" name="option_num" value="2">
+              <input class="input_username" type="text" name="user_name" placeholder="ID" ><br>
+              <input class="input_username" type="text" name="link" placeholder="Link Address"><br>
+              <textarea class="input_text" type="text" name="content" placeholder="TEXT"></textarea><br>
             </div>
             <input class="input_submit" type="submit" value="BLOW">
           </form>
@@ -198,14 +214,21 @@
       <div class="modal-dialog" role="document">
         <div class="blowing_mark">blah blah</div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
         <div class="blowing_input">
+          
           <div class="" style="text-align:center">
             <h4 class="modal-title" id="myModalLabel4">Modal title</h4>
           </div>
-          <form style="text-align:center; margin-top:20px;">
+          
+          <form style="text-align:center; margin-top:20px;" action="/reply/create" method="post" enctype="multipart/form-data">
             <div class="input_box">
-              <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-              <textarea class="input_text" style="height:200px" type="text" name="text" placeholder="TEXT"></textarea><br>
+              <input type="hidden" name="location" class="location_input" value="">
+              <textarea type="hidden" name="location_text" id="locationText4" style="display:none"></textarea>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+              <input type="hidden" name="option_num" value="3">
+              <input class="input_username" type="text" name="user_name" placeholder="ID" ><br>
+              <textarea class="input_text" style="height:200px" type="text" name="content" placeholder="TEXT"></textarea><br>
             </div>
             <input class="input_submit" type="submit" value="BLOW">
           </form>
@@ -224,9 +247,9 @@
 
 <!-- <div class="col-md-12" style="">
     <div class="col-md-2" style="height: 900px; border-right: 1px solid #fff">
-        <%= render partial: '/home/part/profile' %>
+        <%#= render partial: '/home/part/profile' %>
     </div>
     <div class="col-md-10">
-        <%= render partial: '/home/part/content' %>
+        <%#= render partial: '/home/part/content' %>
     </div>
 </div> -->

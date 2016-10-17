@@ -20,4 +20,5 @@ class HomeController < ApplicationController
 
   def hanseuly
   end
+  
 end
