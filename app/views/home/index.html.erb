@@ -1,16 +1,19 @@
 <style>
-
-body {
-  background:none;
-  color:black;
-}
+  body {
+    background:none;
+    color:black;
+    height:100vh;
+    text-align: center;
+    background-image:url(/sources/background.png);
+    background-size:cover;
+    background-position:bottom;
+  }
 </style>
 
-
-<a href="/home/list" style="margin:auto"><img src="/sources/logo_bubblegum.png"></a>
-
+<a href="/home/list" style="position:relative;"><img style="margin-top:40vh;" src="/sources/index_enjoyBubblegum.png"></a>
 
 
+<!--
 <div class="blowing_input">
 
   <div class="" style="text-align:center">
@@ -25,10 +28,9 @@ body {
       <input type="hidden" name="option_num" value="0">
       <input class="input_username" type="text" name="user_name" placeholder="ID" ><br>
       <textarea class="input_text" type="text" name="content" placeholder="TEXT"></textarea><br>
-      <!--<input class="input_file" type="file" id="tag_file" accept="image/*" onchange="loadFile(event)">-->
       <%= file_field 'upload', 'datafile', class: "input_file", id: "tag_file" %>
     </div>
     <input class="input_submit" type="submit" value="GO">
   </form>
 
-</div>
+</div> -->

@@ -16,6 +16,34 @@ textarea:focus, input:focus, button:focus{
     outline: none;
 }
 
+
+/* list page *****************************/
+div.a {
+  width: 200px;
+  height:200px;
+  background-color: orange;
+  position:fixed;
+  border-radius:50%;
+}
+
+.grow {
+  margin:auto;
+  position:relative;
+  top:200px;
+  width:100px;
+  height:100px;
+  background:red;
+  transition: all .2s ease-in-out;
+  text-align:center;
+  line-height:100px;
+}
+.grow:hover {
+  transform: scale(2);
+  background:yellow;
+  transition: all .25s ease;
+}
+
+
 /* _navbar.html **************************/
 .my_nav{
   background: none;
