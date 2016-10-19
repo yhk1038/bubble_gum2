@@ -11,6 +11,9 @@ class HomeController < ApplicationController
   def howto
   end
 
+  def main_pre
+  end
+
   def main
     @post = Post.last
     unless params[:id].nil?
@@ -20,5 +23,5 @@ class HomeController < ApplicationController
 
   def hanseuly
   end
-  
+
 end

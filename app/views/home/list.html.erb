@@ -8,49 +8,74 @@
     background-size:cover;
     background-position:bottom;
   }
+  /* _navbar.html **************************/
+  .navbar-default { text-align:left; }
+  .my_nav-font_color{ color: #ff007a !important; }
+  .my_nav-font_color:hover{ color: #913dcc !important; }
+  .navbar-default .navbar-toggle .icon-bar { background-color: #ff007a;  }
+  .form-control::-webkit-input-placeholder { color: #ff007a; }
+  .form-control:hover::-webkit-input-placeholder { color:#913dcc; }
+  .form-control:focus {
+    border-bottom: 1px solid #ff007a;
+    color: black;
+  }
 </style>
 
-<script>
-  $(document).ready(function(){
-      $('.a').each(function(){ animateDiv($(this)); });
-  });
+<!-- <a href="/" style="position:relative;"><img style="height:25px; margin-top:15px;" src="/sources/logo_bubblegum.png"></a>
+<br> -->
 
-  function makeNewPosition(){
-      var h = $(window).height() - 50;
-      var w = $(window).width() - 50;
-      var nh = Math.floor(Math.random() * h);
-      var nw = Math.floor(Math.random() * w);
-      return [nh,nw];
-  }
+<nav class="navbar navbar-default my_nav">
+    <div class="container-fluid">
+        <div style="border-bottom: 1px solid #ff007a;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header col-md-8 col-sm-12">
 
-  function animateDiv(ele){
-      var newq = makeNewPosition();
-      var oldq = ele.offset();
-      var speed = calcSpeed([oldq.top, oldq.left], newq);
-      ele.animate({ top: newq[0], left: newq[1] }, speed, function(){
-        animateDiv(ele);
-      });
-  };
+                <div class="navbar-brand col-md-8 col-sm-5 col-xs-5"><a class="my_nav-font_color" href="#">how to blow bubble?</a></div>
+                <div class="navbar-brand col-md-4 col-sm-5 col-xs-5" style="padding-left:60px"><a class="my_nav-font_color" href="/home/index"><img src="/sources/logo_bubblegum.png" style="height:25px;"></a></div>
+                <div class="col-xs-2" style="right: 0; padding:0">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                </div>
+            </div>
 
-  function calcSpeed(prev, next) {
-      var x = Math.abs(prev[1] - next[1]);
-      var y = Math.abs(prev[0] - next[0]);
-      var greatest = x > y ? x : y;
-      var speedModifier = 0.05;
-      var speed = Math.ceil(greatest/speedModifier);
-      return speed;
-  }
-</script>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right" id="user">
+                    <li><a href="/users/sign_in" class="my_nav-font_color">login</a></li>
+                    <li><a href="/users/sign_up" class="my_nav-font_color">sign up</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-right" role="search">
+                  <span class="glyphicon glyphicon-search" style="color:#ff007a" aria-hidden="true"></span>
+                  <input type="text" class="form-control" placeholder="Search" onkeydown="javascript:if(event.keyCode==13){goPage('1');}">
+                  <!-- <button type="submit" class="search_btn">submit</button> -->
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
 
 
-<a href="/" style="position:relative;"><img style="height:25px; margin-top:15px;" src="/sources/logo_bubblegum.png"></a>
-<br>
+<div class="clock" id="clockbox"style="margin-top:80px;"></div>
+<!-- <div class="clock">TODAY'S NEWS</div> -->
 
 
-  <div class="col-xs-3">
-    <div class="grow">hi</div>
+<div class="row" style="margin:0;">
+  <div class="col-md-3">
+    <div class="listbox">hi</div>
   </div>
-
-
-<div class='a'></div>
-<div class='a'></div>
+  <div class="col-md-3">
+    <div class="listbox">hi</div>
+  </div>
+  <div class="col-md-3">
+    <div class="listbox">hi</div>
+  </div>
+  <div class="col-md-3">
+    <div class="listbox">hi</div>
+  </div>
+</div>
