@@ -24,9 +24,10 @@ textarea:focus, input:focus, button:focus{
   margin:auto;
   position:relative;
   margin-top:15vh;
-  width:200px;
-  height:200px;
+  width:250px;
+  height:250px;
   // background: $color_pink;
+  background-image:url(/sources/profile.png);
   border: 5px solid $color_pink;
   background-size:cover;
   background-position: center center;
@@ -36,12 +37,20 @@ textarea:focus, input:focus, button:focus{
   border-radius:50%;
 }
 .listbox:hover {
-  transform: scale(2);
-  background:$color_purple;
+  transform: scale(1.8);
+  background-image: none;
+  background-size:cover;
+  background-position: center center;
+  background-color:white;
   transition: all .25s ease;
 }
-
-
+.listbox2 {
+  display:none;
+  line-height:50px;
+}
+.listbox:hover .listbox2 {
+  display:block;
+}
 
 
 /* main_pre *****************************/

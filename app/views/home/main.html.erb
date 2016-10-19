@@ -33,7 +33,7 @@
         <div class="col-md-4" style="margin:none">
           <!-- article image-->
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
-          
+
           <% @post.replies.reorder("like_count desc").each do |reply| %>
             <% if reply.option_num == 0 %>
               <!-- reply1_image -->
@@ -45,7 +45,7 @@
                   <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
                 </div><br>
               </div>
-              
+
             <% elsif reply.option_num == 1 %>
               <!-- reply2&4_information/blahblah-->
               <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
@@ -59,7 +59,7 @@
                   <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
                 </div><br>
               </div>
-              
+
             <% elsif reply.option_num == 2 %>
               <!-- reply3_link-->
               <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
@@ -77,7 +77,7 @@
                   <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
                 </div><br>
               </div>
-              
+
             <% elsif reply.option_num == 3 %>
               <!-- reply2&4_information/blahblah-->
               <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
@@ -93,7 +93,7 @@
               </div>
             <% end %>
           <% end %>
-          
+
         </div> <!--col-md-4(news)-->
 
         <div class="col-md-8 article_text">
@@ -214,13 +214,13 @@
       <div class="modal-dialog" role="document">
         <div class="blowing_mark">blah blah</div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        
+
         <div class="blowing_input">
-          
+
           <div class="" style="text-align:center">
             <h4 class="modal-title" id="myModalLabel4">Modal title</h4>
           </div>
-          
+
           <form style="text-align:center; margin-top:20px;" action="/reply/create" method="post" enctype="multipart/form-data">
             <div class="input_box">
               <input type="hidden" name="location" class="location_input" value="">
