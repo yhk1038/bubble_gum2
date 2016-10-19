@@ -16,6 +16,45 @@ textarea:focus, input:focus, button:focus{
     outline: none;
 }
 
+
+/* list page *****************************/
+.clock {
+  font-size:20pt;
+}
+
+.listbox {
+  margin:auto;
+  position:relative;
+  margin-top:15vh;
+  width:250px;
+  height:250px;
+  // background: $color_pink;
+  background-image:url(/sources/profile.png);
+  border: 5px solid $color_pink;
+  background-size:cover;
+  background-position: center center;
+  transition: all .2s ease-in-out;
+  text-align:center;
+  line-height:100px;
+  border-radius:50%;
+}
+.listbox:hover {
+  transform: scale(1.8);
+  background-image: none;
+  background-size:cover;
+  background-position: center center;
+  background-color:white;
+  transition: all .25s ease;
+}
+.listbox2 {
+  display:none;
+  line-height:50px;
+}
+.listbox:hover .listbox2 {
+  display:block;
+}
+
+
 /* _navbar.html **************************/
 .my_nav{
   background: none;
