@@ -30,36 +30,22 @@
 <!-- CONTENTS ------------------------------------------------------------------>
     <div class="box_contents">
       <div class="row">
-
-        <% post = @post %>
-        <%
-            content = post.content
-            content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
-            content2 = content2.split
-            arr = []
-            i = 1
-            limit = 20
-            loop do
-                break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
-                arr << content2[(limit * (i - 1))..((limit * i)-1)]
-                i += 1
-            end
-            arr2 = []
-            arr.each do |e|
-                arr2 << e.join(' ')
-            end
-            arr3 = []
-            j = 1
-            arr2.each do |f|
-                arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
-                j += 1
-            end
-            content3 = arr3.join
-        %>
-
         <div class="col-md-7 article_text">
-          <p class="post_content"><%= content3.html_safe %></p>
-        </div> <!-- col-md-87 (news) -->
+          <p class="post_content"><%= @post.content_to_split_span_block.html_safe %></p>
+        </div> <!-- col-md-7 (news) -->
+        <style>
+          .ggum_ddak_ji, .ggum_ddak_ji_in{
+            background: #aeaeae;
+            color: #fff;
+            cursor: pointer;
+            transition: all .2s;
+          }
+          .ggum_ddak_ji:hover, .ggum_ddak_ji_in:hover{
+            background: #e9e9e9;
+            color: blue;
+            font-size: 18px;
+          }
+        </style>
 
         <div class="col-md-5" style="margin:none; padding:20px 30px">
           <!-- article image-->
@@ -126,24 +112,6 @@
           <% end %>
 
         </div> <!--col-md-4(news)-->
-
-        <div class="col-md-8 article_text">
-          <p class="post_content"><%= @post.content_to_split_span_block.html_safe %></p>
-        </div>
-        <style>
-          .ggum_ddak_ji, .ggum_ddak_ji_in{
-            background: #aeaeae;
-            color: #fff;
-            cursor: pointer;
-            transition: all .2s;
-          }
-          .ggum_ddak_ji:hover, .ggum_ddak_ji_in:hover{
-            background: #e9e9e9;
-            color: blue;
-            font-size: 18px;
-          }
-        </style>
-
       </div>
     </div>
 
