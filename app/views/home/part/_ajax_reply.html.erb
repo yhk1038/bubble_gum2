@@ -95,8 +95,25 @@ $(document).ready(function(){
         })
         .done(function( json ) {
             var updated_count = json.count;
-            $("#reply_count").empty('');
-            $("#reply_count").append(updated_count)
+            $("#reply_count_" + replyId).empty('');
+            $("#reply_count_" + replyId).append(updated_count)
+        });
+    });
+    
+    $(".dislikeReply").click(function(){
+        var this_reply = $(this);
+        var replyId = this_reply.attr("num");    // like button with attribute name of num="(this_reply.id)"
+        var user_id = $("#userId").val();        // hidden type input with id="userId" value="(current_user.id)"
+        $.ajax({
+            method: "POST",
+            url: "/reply/anti_count_update",
+            data: {reply_id: replyId, user_id: user_id},
+            dataType: "json"
+        })
+        .done(function( json ) {
+            var updated_count = json.count;
+            $("#anti_count_" + replyId).empty('');
+            $("#anti_count_" + replyId).append(updated_count)
         });
     });
 });

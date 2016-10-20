@@ -19,7 +19,7 @@
       <h1 class="article_title"><%= @post.title %></h1><br>
       <div class="col-md-6 mini_info"><%= @post.written_at %></div>
       <div class="col-md-6 mini_info" style="text-align:right">
-        <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2" id="reply_count">0</span> <a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a>&nbsp;
+        <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2"><%= @post.viewcounts.count %></span>&nbsp;
         <img src="/sources/icon/icon-reply.png" class="mini_icon"> 버블 &nbsp;<span class="mini_info2"><%= @post.replies.count %></span>&nbsp;
         <img src="/sources/icon/icon-gdj.png" class="mini_icon"> 껌딱지 &nbsp;<span class="mini_info2"></span>%
       </div>
@@ -51,6 +51,8 @@
           <!-- article image-->
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
 
+
+<!--<a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a>-->
           <% @post.replies.reorder("like_count desc").each do |reply| %>
             <% if reply.option_num == 0 %>
               <!-- reply1_image -->
@@ -58,8 +60,8 @@
                 <div class="reply_gum1_image" style="background-image:url('<%= reply.img_url %>');"></div>
                 <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %><br>
                 <div style="float:right">
-                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
-                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                  <span class="glyphicon glyphicon-heart likeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="reply_count_<%= reply.id %>"><%= reply.like_count %></span>
+                  <span class="glyphicon glyphicon-remove dislikeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="anti_count_<%= reply.id %>"><%= reply.unlike_count %></span>
                 </div><br>
               </div>
 
@@ -72,8 +74,8 @@
                   </div>
                 </div>
                 <div style="float:right">
-                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
-                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                  <span class="glyphicon glyphicon-heart likeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="reply_count_<%= reply.id %>"><%= reply.like_count %></span>
+                  <span class="glyphicon glyphicon-remove dislikeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="anti_count_<%= reply.id %>"><%= reply.unlike_count %></span>
                 </div><br>
               </div>
 
@@ -90,8 +92,8 @@
                   <span class="glyphicon glyphicon-chevron-right" style="top:2px" aria-hidden="true"></span> go to news
                 </div> -->
                 <div style="display:inline-block; float:right">
-                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
-                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                  <span class="glyphicon glyphicon-heart likeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="reply_count_<%= reply.id %>"><%= reply.like_count %></span>
+                  <span class="glyphicon glyphicon-remove dislikeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="anti_count_<%= reply.id %>"><%= reply.unlike_count %></span>
                 </div><br>
               </div>
 
@@ -104,8 +106,8 @@
                   </div>
                 </div>
                 <div style="float:right">
-                  <span class="glyphicon glyphicon-heart" style="top:2px" aria-hidden="true"></span> <%= reply.like_count %>
-                  <span class="glyphicon glyphicon-remove" style="top:2px" aria-hidden="true"></span> <%= reply.unlike_count %>
+                  <span class="glyphicon glyphicon-heart likeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="reply_count_<%= reply.id %>"><%= reply.like_count %></span>
+                  <span class="glyphicon glyphicon-remove dislikeReply" style="cursor:pointer; top:2px" aria-hidden="true" num="<%= reply.id %>"></span> <span id="anti_count_<%= reply.id %>"><%= reply.unlike_count %></span>
                 </div><br>
               </div>
             <% end %>

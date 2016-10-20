@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
     has_many :replies
+    has_many :viewcounts
     belongs_to :user
     
     def self.create_permitted_attr(exclude)
@@ -63,4 +64,12 @@ class Post < ActiveRecord::Base
     # @post = Post.first
     # @post.gum_count("img").count
     
+    def view_count_plus
+        post = self
+        v = Viewcount.new
+        v.post_id = post.id
+        v.save
+        
+        return post.viewcounts.count
+    end
 end

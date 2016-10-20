@@ -18,7 +18,7 @@
       <h1 class="article_title"><%= @post.title %></h1><br>
       <div class="col-md-6 mini_info"><%= @post.written_at %></div>
       <div class="col-md-6 mini_info" style="text-align:right">
-        <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2" id="reply_count">0</span> <a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a>&nbsp;
+        <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2"><%= @view_count %></span>&nbsp;
         <img src="/sources/icon/icon-reply.png" class="mini_icon"> 버블 &nbsp;<span class="mini_info2"><%= @post.replies.count %></span>&nbsp;
         <img src="/sources/icon/icon-gdj.png" class="mini_icon"> 껌딱지 &nbsp;<span class="mini_info2"></span>%
       </div>
@@ -27,31 +27,18 @@
 
     <div class="box_contents">
       <div class="row" id="floatingstage" style="height:70vh">
-
-        <a href="/home/main/4">
-          <div class="a" style="background-image: url(/sources/news4/1.jpg);">
+        <% @replies.each do |reply| %>
+        <a href="/home/main/<%= @post.id %>">
+          <div class="a" style="background-image: url('<%= reply.img_url %>');">
             <div class="a2">
-              <div class="a_article">기사내용...</div>
+              <div class="a_article"><%= reply.content %></div>
             </div>
           </div>
         </a>
-        <a href="/home/main/4">
-          <div class="a" style="background-image: url(/sources/news4/2.jpg);">
-            <div class="a2">
-              <div class="a_article">기사내용...</div>
-            </div>
-          </div>
-        </a>
-        <a href="/home/main/4">
-          <div class="a" style="background-image: url(/sources/news4/3.jpg);">
-            <div class="a2">
-              <div class="a_article">기사내용...</div>
-            </div>
-          </div>
-        </a>
+        <% end %>
 
         <div style="width:50%; margin:auto;">
-          <img style="width:100%" src="http://img.hani.co.kr/imgdb/resize/2016/0912/00503964_20160912.JPG">
+          <a href="/home/main/<%= @post.id %>"><img style="width:100%" src="<%= @post.img_url %>"></a>
         </div>
 
 

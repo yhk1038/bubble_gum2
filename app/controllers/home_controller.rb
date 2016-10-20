@@ -10,20 +10,21 @@ class HomeController < ApplicationController
   end
 
   def list
-    @post = Post.last
-    unless params[:id].nil?
-      @post = Post.find(params[:id])
-    end
+    @posts = Post.all
   end
 
   def howto
   end
 
   def listpre
-    @post = Post.last
+    @posts = Post.all
+    @post = @posts.last
+    
     unless params[:id].nil?
       @post = Post.find(params[:id])
     end
+    @view_count = @post.view_count_plus
+    @replies = @post.replies.where(option_num: 0).all
   end
 
   def main_pre

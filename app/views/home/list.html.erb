@@ -1,4 +1,4 @@
-<!-- <%= render partial: '/home/part/nav.html.erb' %> -->
+<!-- <%#= render partial: '/home/part/nav.html.erb' %> -->
 <style>
   body{
     /*height:100vh;*/
@@ -67,51 +67,50 @@
 </div> -->
 
 <div class="row" style="margin:0;">
-
-  <div class="col-md-3">
-
-    <a href="/home/main/1">
-      <div class="listbox" style="background-image:url(/sources/news1/alphago.jpg);">
-        <div class="listbox2">
-          <h5 class="listbox_title">알파고, 세계 최정상 <br>이세돌 9단을 누르다</h5>
-          <h6 class="listbox_info">2016-03-09</h6>
+  <% @posts.each do |post| %>
+    <div class="col-md-3">
+      <a href="/home/listpre/<%= post.id %>">
+        <div class="listbox" style="background-image:url(<%= post.img_url %>);">
+          <div class="listbox2">
+            <h5 class="listbox_title"><%= post.title %></h5>
+            <h6 class="listbox_info"><%= post.written_at %></h6>
+          </div>
         </div>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
+  <% end %>
+  <!--<div class="col-md-3">-->
+  <!--  <a href="/home/main/2">-->
+  <!--    <div class="listbox" style="background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);">-->
+  <!--      <div class="listbox2">-->
+  <!--        <h5 class="listbox_title">갤노트7 리콜 파문 확산… <br>애플 최대 반사이익</h5>-->
+  <!--        <h6 class="listbox_info">2016-09-11</h6>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </a>-->
+  <!--</div>-->
 
-  <div class="col-md-3">
-    <a href="/home/main/2">
-      <div class="listbox" style="background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);">
-        <div class="listbox2">
-          <h5 class="listbox_title">갤노트7 리콜 파문 확산… <br>애플 최대 반사이익</h5>
-          <h6 class="listbox_info">2016-09-11</h6>
-        </div>
-      </div>
-    </a>
-  </div>
+  <!--<div class="col-md-3">-->
+  <!--  <a href="/home/main/3">-->
+  <!--    <div class="listbox" style="background-image:url(http://imgnews.naver.net/image/366/2016/10/16/2016101600213_0_99_20161016121707.jpg?type=w540);">-->
+  <!--      <div class="listbox2">-->
+  <!--        <h5 class="listbox_title">[과학TALK] 화성 개척 선언 머스크·오바마...유전자 조작 미생물 <br>퍼뜨리자는 아이디어까지</h5>-->
+  <!--        <h6 class="listbox_info">2016-10-16</h6>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </a>-->
+  <!--</div>-->
 
-  <div class="col-md-3">
-    <a href="/home/main/3">
-      <div class="listbox" style="background-image:url(http://imgnews.naver.net/image/366/2016/10/16/2016101600213_0_99_20161016121707.jpg?type=w540);">
-        <div class="listbox2">
-          <h5 class="listbox_title">[과학TALK] 화성 개척 선언 머스크·오바마...유전자 조작 미생물 <br>퍼뜨리자는 아이디어까지</h5>
-          <h6 class="listbox_info">2016-10-16</h6>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-md-3">
-    <a href="/home/listpre">
-      <div class="listbox" style="background-image:url(http://img.hani.co.kr/imgdb/resize/2016/0912/00503964_20160912.JPG);">
-        <div class="listbox2">
-          <h5 class="listbox_title">온나라 뒤흔든 지진공포…<br>“아이 안고 부랴부랴 집 밖으로”</h5>
-          <h6 class="listbox_info">2016-09-13</h6>
-        </div>
-      </div>
-    </a>
-  </div>
+  <!--<div class="col-md-3">-->
+  <!--  <a href="/home/listpre">-->
+  <!--    <div class="listbox" style="background-image:url(http://img.hani.co.kr/imgdb/resize/2016/0912/00503964_20160912.JPG);">-->
+  <!--      <div class="listbox2">-->
+  <!--        <h5 class="listbox_title">온나라 뒤흔든 지진공포…<br>“아이 안고 부랴부랴 집 밖으로”</h5>-->
+  <!--        <h6 class="listbox_info">2016-09-13</h6>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </a>-->
+  <!--</div>-->
 
 </div>
 

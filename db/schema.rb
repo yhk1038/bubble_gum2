@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20161016213302) do
   end
 
   create_table "viewcounts", force: :cascade do |t|
-    t.integer  "count"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

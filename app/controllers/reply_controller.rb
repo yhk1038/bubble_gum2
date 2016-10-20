@@ -36,6 +36,19 @@ class ReplyController < ApplicationController
     num = reply.like_count
     render json: { count: num }
   end
+  
+  def anti_count_update
+    reply = Reply.find(params[:reply_id])
+    
+    unless reply.like_count.nil?
+      reply.unlike_count = reply.unlike_count + 1
+    else
+      reply.unlike_count = 0 + 1
+    end
+    reply.save
+    num = reply.unlike_count
+    render json: { count: num }
+  end
 
   def delete
   end
