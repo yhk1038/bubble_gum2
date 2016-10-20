@@ -1,0 +1,43 @@
+<style>
+  body{
+    height:100vh;
+    overflow-y:hidden;
+    background:#ffc0cb;
+  }
+</style>
+
+<!--------------- CONTENT ----------------------------------------------------->
+<div class="white_bg">
+
+  <div class="home_img"> </div>
+  <div class="login_box">
+      <div class="login_input">
+        <!--<label for="user_email">Email</label><br />-->
+        <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" placeholder="Email"/>
+      </div>
+
+      <div class="login_input">
+        <!--<label for="user_password">Password</label><br />-->
+        <input autocomplete="off" type="password" name="user[password]" id="user_password" placeholder="Password" />
+      </div>
+
+      <div class="actions">
+        <a href="/home/index"> <input type="submit" name="commit" value="L O G I N"/></a>
+      </div>
+      <div class="actions">
+        <a href="/home/index"> <input style="margin-top:5px; margin-bottom:10px" type="submit" name="commit" value="N O N - M E M B E R"/></a>
+      </div>
+
+      <a href="#" style="float:right"> Forgot Password? </a>
+      <a href="#"> Sign Up </a>
+  </div>
+
+  <div class="howtouse">
+    <a href="/home/howto">
+      <img src="/sources/icon/icon_howto.png"><br>
+      HOW TO USE?
+      </a>
+  </div>
+
+
+</div>

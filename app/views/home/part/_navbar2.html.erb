@@ -1,0 +1,36 @@
+
+<nav class="navbar navbar-default my_nav">
+    <div class="container-fluid">
+        <div style="border-bottom: 1px solid #ff007a;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header col-md-8 col-sm-12">
+
+                <div class="navbar-brand col-md-8 col-sm-5 col-xs-5"><a class="my_nav-font_color" href="#">how to blow bubble?</a></div>
+                <div class="navbar-brand col-md-4 col-sm-5 col-xs-5" style="padding-left:60px"><a class="my_nav-font_color" href="/home/index"><img src="/sources/logo_bubblegum.png" style="height:25px;"></a></div>
+                <div class="col-xs-2" style="right: 0; padding:0">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right" id="user">
+                    <li><a href="/users/sign_in" class="my_nav-font_color">login</a></li>
+                    <li><a href="/users/sign_up" class="my_nav-font_color">sign up</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-right" role="search">
+                  <span class="glyphicon glyphicon-search" style="color:#ff007a" aria-hidden="true"></span>
+                  <input type="text" class="form-control" placeholder="Search" onkeydown="javascript:if(event.keyCode==13){goPage('1');}">
+                  <!-- <button type="submit" class="search_btn">submit</button> -->
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>

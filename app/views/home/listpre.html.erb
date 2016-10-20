@@ -1,0 +1,106 @@
+<%= render partial: '/home/part/nav.html.erb' %>
+
+<div class="row" style="margin-top:100px">
+  <!-- reporter ------------------------------------------------------------------>
+    <div class="col-md-2" style="text-align:center">
+      <div class="reporter_image">
+        <!-- <img class="reporter_mark" src="/sources/profile-3.png"> 공식기자 인증마크 -->
+      </div>
+      <h4><%= @post.reporter_name %> | <%= @post.from %></h4>
+      <!-- <a class="button_back" href="javascript:history.back()">Back</a><br> -->
+    </div> <!--col-md-2-->
+
+<!-- NEWS ---------------------------------------------------------------------->
+  <div class="col-md-8"> <!-- news -->
+
+<!-- TITLE --------------------------------------------------------------------->
+    <div>
+      <h1 class="article_title"><%= @post.title %></h1><br>
+      <div class="col-md-6 mini_info"><%= @post.written_at %></div>
+      <div class="col-md-6 mini_info" style="text-align:right">
+        <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2" id="reply_count">0</span> <a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a>&nbsp;
+        <img src="/sources/icon/icon-reply.png" class="mini_icon"> 버블 &nbsp;<span class="mini_info2"><%= @post.replies.count %></span>&nbsp;
+        <img src="/sources/icon/icon-gdj.png" class="mini_icon"> 껌딱지 &nbsp;<span class="mini_info2"></span>%
+      </div>
+      <input type="hidden" id="userId" value="2">
+    </div>
+
+    <div class="box_contents">
+      <div class="row" id="floatingstage" style="height:70vh">
+
+        <a href="/home/main/4">
+          <div class="a" style="background-image: url(/sources/news4/1.jpg);">
+            <div class="a2">
+              <div class="a_article">기사내용...</div>
+            </div>
+          </div>
+        </a>
+        <a href="/home/main/4">
+          <div class="a" style="background-image: url(/sources/news4/2.jpg);">
+            <div class="a2">
+              <div class="a_article">기사내용...</div>
+            </div>
+          </div>
+        </a>
+        <a href="/home/main/4">
+          <div class="a" style="background-image: url(/sources/news4/3.jpg);">
+            <div class="a2">
+              <div class="a_article">기사내용...</div>
+            </div>
+          </div>
+        </a>
+
+        <div style="width:50%; margin:auto;">
+          <img style="width:100%" src="http://img.hani.co.kr/imgdb/resize/2016/0912/00503964_20160912.JPG">
+        </div>
+
+
+      </div>
+    </div>
+
+  </div> <!--col-md-8-->
+
+  <div class="col-md-2">
+    <a class="button_back" href="javascript:history.back()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="top:2px"></span>Back</a><br>
+  </div>
+
+</div> <!--row-->
+<style>
+
+</style>
+
+
+<script>
+$(document).ready(function(){
+    $('.a').each(function(){ animateDiv($(this)); });
+});
+
+function makeNewPosition(){
+    var h = $('#floatingstage').height()-50;
+    var w = $('#floatingstage').width()-50;
+    // var h = $(window).height() - 300;
+    // var w = $(window).width() - 300;
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+    return [nh,nw];
+}
+
+function animateDiv(ele){
+    var newq = makeNewPosition();
+    var oldq = ele.offset();
+    var speed = calcSpeed([oldq.top, oldq.left], newq);
+    ele.animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animateDiv(ele);
+    });
+};
+
+function calcSpeed(prev, next) {
+    var x = Math.abs(prev[1] - next[1]);
+    var y = Math.abs(prev[0] - next[0]);
+    var greatest = x > y ? x : y;
+    var speedModifier = 0.05;
+    var speed = Math.ceil(greatest/speedModifier);
+    return speed;
+}
+
+</script>

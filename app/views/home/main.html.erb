@@ -1,36 +1,67 @@
-<%= render partial: '/home/part/navbar' %>
+<%= render partial: '/home/part/nav.html.erb' %>
 
 
-<div class="row" style="margin-top:30px">
-  <div class="col-md-2" style="text-align:center"> <!-- reporter -->
+<div class="row" style="margin-top:100px">
+
+<!-- reporter ------------------------------------------------------------------>
+  <div class="col-md-2" style="text-align:center">
     <div class="reporter_image">
-      <img class="reporter_mark" src="/sources/mark.png"> <!-- 공식기자 인증마크 -->
+      <!-- <img class="reporter_mark" src="/sources/profile-3.png"> 공식기자 인증마크 -->
     </div>
-    <!-- <img class="" style="width:100px; height:100px; border:5px solid white; margin:auto; border-radius: 50%;" src="/sources/profile.png"> -->
-
     <h4><%= @post.reporter_name %> | <%= @post.from %></h4>
-
   </div> <!--col-md-2-->
 
-
-
+<!-- NEWS ---------------------------------------------------------------------->
   <div class="col-md-8"> <!-- news -->
 
-    <div> <!-- title -->
-      <h1 style="margin-top:0px;"><%= @post.title %></h1>
-      <div style="display:inline-block"><%= @post.written_at %></div>
-      <div style="display:inline-block; float:right">조회수 <span id="reply_count">0</span> <a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a> , 댓글수 <%= @post.replies.count %>, 재구성%</div>
+<!-- TITLE --------------------------------------------------------------------->
+    <div>
+      <h1 class="article_title"><%= @post.title %></h1><br>
+      <div class="col-md-6 mini_info"><%= @post.written_at %></div>
+      <div class="col-md-6 mini_info" style="text-align:right">
+        <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2" id="reply_count">0</span> <a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a>&nbsp;
+        <img src="/sources/icon/icon-reply.png" class="mini_icon"> 버블 &nbsp;<span class="mini_info2"><%= @post.replies.count %></span>&nbsp;
+        <img src="/sources/icon/icon-gdj.png" class="mini_icon"> 껌딱지 &nbsp;<span class="mini_info2"></span>%
+      </div>
       <input type="hidden" id="userId" value="2">
     </div>
 
 
-    <br> <br>
-
-
-    <div> <!-- contents -->
+<!-- CONTENTS ------------------------------------------------------------------>
+    <div class="box_contents">
       <div class="row">
 
-        <div class="col-md-4" style="margin:none">
+        <% post = @post %>
+        <%
+            content = post.content
+            content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
+            content2 = content2.split
+            arr = []
+            i = 1
+            limit = 20
+            loop do
+                break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
+                arr << content2[(limit * (i - 1))..((limit * i)-1)]
+                i += 1
+            end
+            arr2 = []
+            arr.each do |e|
+                arr2 << e.join(' ')
+            end
+            arr3 = []
+            j = 1
+            arr2.each do |f|
+                arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
+                j += 1
+            end
+            content3 = arr3.join
+        %>
+
+        <div class="col-md-7 article_text">
+          <p class="post_content"><%= content3.html_safe %></p>
+        </div> <!-- col-md-87 (news) -->
+
+        <div class="col-md-5" style="margin:none; padding:20px 30px">
           <!-- article image-->
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
 
@@ -79,37 +110,6 @@
 
         </div> <!--col-md-4(news)-->
 
-        <% post = @post %>
-        <%
-            content = post.content
-            content2 = content.gsub("<p class=\"post_content\">",'').gsub("</p>",'').gsub("<br>"," <br> ")
-            content2 = content2.split
-            arr = []
-            i = 1
-            limit = 20
-            loop do
-                break if content2[(limit * (i - 1))..((limit * i)-1)].nil?
-                arr << content2[(limit * (i - 1))..((limit * i)-1)]
-                i += 1
-            end
-            arr2 = []
-            arr.each do |e|
-                arr2 << e.join(' ')
-            end
-            arr3 = []
-            j = 1
-            arr2.each do |f|
-                arr3 << "<span class=\"span_block\" id=\"block#{j}\">" + f + "</span>"
-                j += 1
-            end
-            content3 = arr3.join
-        %>
-        <div class="col-md-8 article_text">
-          <p class="post_content"><%= content3.html_safe %></p>
-        </div>
-
-
-
       </div>
     </div>
 
@@ -117,21 +117,22 @@
 
 
   <div class="col-md-2">
+    <a class="button_back" href="javascript:history.back()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="top:2px"></span>Back</a><br>
     <!-- Button trigger modal -->
     <div id="button_form">
-      <div class="" data-toggle="modal" data-target="#myModal1">image</div>
-      <div class="" data-toggle="modal" data-target="#myModal2">information</div>
-      <div class="" data-toggle="modal" data-target="#myModal3">news</div>
-      <div class="" data-toggle="modal" data-target="#myModal4">blahblah...</div>
+      <div data-toggle="modal" data-target="#myModal1"><img src="/sources/button/button1_img.png"> image</div>
+      <div data-toggle="modal" data-target="#myModal2"><img src="/sources/button/button2_info.png"> information</div>
+      <div data-toggle="modal" data-target="#myModal3"><img src="/sources/button/button3_news.png"> news</div>
+      <div data-toggle="modal" data-target="#myModal4"><img src="/sources/button/button4_blah2.png"> blahblah</div>
     </div>
 
     <!-- Modal1 : image form tag ----------------------------->
     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="blowing_mark">image</div>
+        <!-- <div class="blowing_mark"><img src="/sources/button/button1_img.png"></div> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-        <div class="blowing_input">
+        <div class="blowing_input" style="background:#a4f2ff">
 
           <div class="" style="text-align:center">
             <h4 class="modal-title" id="myModalLabel1">Modal title</h4>
@@ -146,15 +147,16 @@
             <input class="input_submit" type="submit" value="BLOW">
           </form>
         </div>
+
       </div>
     </div>
     <!-- Modal2 : information form tag ----------------------------->
     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="blowing_mark">information</div>
+        <!-- <div class="blowing_mark"><img src="/sources/button/button2_info.png"></div> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-        <div class="blowing_input">
+        <div class="blowing_input" style="background:#fff35f">
 
           <div class="" style="text-align:center">
             <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
@@ -163,7 +165,7 @@
           <form style="text-align:center; margin-top:20px;">
             <div class="input_box">
               <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-              <textarea class="input_text" type="text" name="text" placeholder="TEXT"></textarea><br>
+              <textarea class="input_text" style="height:190px" type="text" name="text" placeholder="TEXT"></textarea><br>
             </div>
             <input class="input_submit" type="submit" value="BLOW">
           </form>
@@ -173,10 +175,10 @@
     <!-- Modal3 : news form tag ----------------------------->
     <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="blowing_mark">news</div>
+        <!-- <div class="blowing_mark"><img src="/sources/button/button3_news.png"></div> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-        <div class="blowing_input">
+        <div class="blowing_input" style="background:#c79eff">
 
           <div class="" style="text-align:center">
             <h4 class="modal-title" id="myModalLabel3">Modal title</h4>
@@ -193,10 +195,11 @@
         </div>
       </div>
     </div>
+
     <!-- Modal4 : blahblah form tag ----------------------------->
     <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="blowing_mark">blah blah</div>
+        <!-- <div class="blowing_mark"><img src="/sources/button/button4_blah2.png"></div> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <div class="blowing_input">
           <div class="" style="text-align:center">
@@ -205,7 +208,7 @@
           <form style="text-align:center; margin-top:20px;">
             <div class="input_box">
               <input class="input_username" type="text" name="Username" placeholder="ID" ><br>
-              <textarea class="input_text" style="height:200px" type="text" name="text" placeholder="TEXT"></textarea><br>
+              <textarea class="input_text" style="height:190px" type="text" name="text" placeholder="TEXT"></textarea><br>
             </div>
             <input class="input_submit" type="submit" value="BLOW">
           </form>
@@ -217,8 +220,6 @@
   </div> <!--col-md-2-->
 
 </div>
-
-
 
 
 

@@ -1,128 +1,412 @@
+@import url(//fonts.googleapis.com/css?family=Noto+Sans);
+@import url(//fonts.googleapis.com/css?family=Ubuntu);
+$main_color1 : #ffc0cb; //babypink
+$main_color2 : #ff5d76; //red
+$button_color1 : #ff5d76; //red
+$button_color2 : #ff7b94; //red-light
 
-$color_pink : #ff007a; //pink
-$color_purple : #913dcc; //purple
-// $button_color1 : #7655ff; //purple-dark
-// $button_color2 : #8671ff; //purple-light
 
-
+/* GLOBAL STYLES ------------------------------------------------------------ */
 
 body {
-  background: linear-gradient(to right, $color_pink, $color_purple);
-  color: #fff;
-  font-size: 17px;
+  font-family: 'Noto Sans', sans-serif;
+  overflow-x:hidden;
+  // background-color: #f2f2f2; //white gray
+}
+
+::selection {
+  background: $main_color1;
+  color: #FFF;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: $main_color1;
+  color: #FFF;
+  text-shadow: none;
+}
+::-webkit-selection {
+  background: $main_color1;
+  color: #FFF;
+  text-shadow: none;
 }
 
 textarea:focus, input:focus, button:focus{
+    outline: 0;
+}
+*:focus {
     outline: none;
 }
 
+a, a:hover, a:focus, a:active, a.active {
+  text-decoration: none;
+}
 
-/* list page *****************************/
+.white_bg {
+  background: white;
+  width:100%;
+  height:80vh;
+  top:10vh;
+  position:absolute;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  border:none;
+}
+
+/* index page (machine) *****************************/
+
+.machine {
+  margin:auto;
+  height:70vh;
+  position:relative;
+  top:5vh;
+  background-image:url("/sources/machine.png");
+  background-size:contain;
+  background-position:center center;
+  background-repeat:no-repeat;
+  text-align:center;
+}
+.lever {
+  height:8vh;
+  position:relative;
+  margin:auto;
+  top:40vh;
+  cursor:pointer;
+  appearance: none;
+  transition: transform 2s ease;
+}
+.animate {
+  transform: rotate(360deg);
+}
+
 .clock {
+  position:relative;
+  width:400px;
+  height:80px;
+  top:10vh;
+  text-align:center;
+  margin:auto;
   font-size:20pt;
+  // background:$main_color1;
+  // border:5px solid black;
+  // border-radius:5px;
+  // line-height: 70px;
+  color:black;
 }
 
 .listbox {
   margin:auto;
   position:relative;
-  margin-top:15vh;
+  margin-top:25vh;
   width:250px;
   height:250px;
-  // background: $color_pink;
-  background-image:url(/sources/profile.png);
-  border: 5px solid $color_pink;
+  // background: $main_color1;
+  border: 5px solid black;
   background-size:cover;
   background-position: center center;
   transition: all .2s ease-in-out;
   text-align:center;
   line-height:100px;
   border-radius:50%;
+  color:black;
 }
 .listbox:hover {
-  transform: scale(1.8);
-  background-image: none;
+  transform: scale(1.5);
+  background-image: none !important;
   background-size:cover;
   background-position: center center;
-  background-color:white;
+  background-color:$main_color2;
   transition: all .25s ease;
 }
 .listbox2 {
   display:none;
-  line-height:50px;
 }
 .listbox:hover .listbox2 {
   display:block;
 }
 
-
-/* _navbar.html **************************/
-.my_nav{
-  background: none;
-  border:none;
+.listbox_title {
+  position:relative;
+  top:80px;
+  font-size:12pt;
+  padding:10px;
+  color:white;
 }
-.my_nav-font_color{
-  font-size : 10pt;
-  text-shadow : none !important;
-  color: #fff !important;
-  text-decoration: none !important;
-}
-.my_nav-font_color:hover{
-  color: #aeaeae !important;
-  transition: color .25s ease;
-  -webkit-transition: color .25s ease; /* Safari */
+.listbox_info {
+  position:relative;
+  top:70px;
+  font-size:7pt;
 }
 
+/* list pre : image bubble ******************/
+div.a {
+  width:250px;
+  height:250px;
+  display:inline-block;
+  border:5px solid black;
+  background-color: rgba(255, 255, 255, 0.5);
+  /*background-image: url(/sources/news/alphago.jpg);*/
+  background-size:cover;
+  background-position:center center;
+  position:fixed;
+  border-radius:50%;
+  // box-shadow:10px 10px 10px rgba(0,0,0, 0.5);
+  /*opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier*/
+}
+div.a:hover {
+  // background-image: none !important;
+  // border:5px solid black;
+  opacity:1;
+  transition: all .25s ease;
+}
+div.a2 {
+  display:none;
+  background: rgba(255,192,203, 0.8);
+  width:240px;
+  height:240px;
+  position:absolute;
+  border-radius:50%;
+  text-align:center;
+  color:black;
+}
+
+div.a:hover .a2 {
+  display:block;
+  transition: all .25s ease;
+}
+
+.a_article{
+  font-size:15pt;
+  top:100px;
+  position:relative;
+}
+
+
+
+
+
+/* NAV-BAR -------------------------------------------------------------------*/
+
+/* nav */
+.nav {
+  min-height:40px;
+}
+
+.navbar-default {
+  background : $main_color1;
+  border : 0;
+  box-shadow : none;
+}
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff;
+  background-color: $main_color2;
 }
 
-.navbar-form {
-  border : none;
-  box-shadow :none;
-  padding: 0px 15px;
+/* active */
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color : white;
+  font-weight : 600;
+  background-color: white;
 }
 
-.glyphicon {
-  top:5px;
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color : white;
+  font-weight : 600;
 }
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a {
+  background : white;
+  box-shadow : none;
+}
+
+/* nav logo image */
+.navbar-brand {
+  min-height:50px;
+  position: relative;
+  left:50%;
+  -ms-transform: translateX(-50%); /* IE 9 */
+  -webkit-transform: translateX(-50%);/* Chrome, Safari, Opera */
+  -o-transfrom: translateX(-50%);
+  transform:translateX(-50%);
+}
+
+/* nav-list */
+.navbar-nav>li>a {
+  line-height:15px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color:white;
+  text-shadow:none;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color:$button_color1;
+}
+
+/* media small_ toggle */
+// .navbar-toggle {  margin-top:20px;}
+.navbar-default .navbar-toggle {  border-color : white}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {  background-color: white;}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {  border-color: white;}
+
+/*search*/
 .form-control {
-  height:34px;
-  padding: 0px 10px;
   border : none;
   border-radius: 0px;
+  // border: 2px solid black;
+  // border-radius: 5px;
+}
+
+.navbar-form, .navbar-collapse {
+  border: none;
   box-shadow: none;
-  background: none;
+  margin-bottom: none;
 }
 
-.form-control::-webkit-input-placeholder {
-  color: #fff;
-  transition: color .25s ease;
-  -webkit-transition: color .25s ease;
-  text-shadow: none !important;
-}
+/*------------------- media -----------------*/
+@media (min-width: 768px) {
+  .navbar-nav>li>a {
+    line-height:20px;
+  }
 
-.form-control:hover::-webkit-input-placeholder {
-  color:#aeaeae;
-}
-
-.form-control:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-bottom: 1px solid white;
-  color: white;
+  .navbar-form .form-control {
+    width:200px;
+  }
 }
 
 
+/* HOME(index.erb) -----------------------------------------------------------*/
+.home_img {
+  position:relative;
+  // background:$main_color1;
+  height:80px;
+  top:12vh;
+  // top:50vh;
+  // -ms-transform: translateY(-50%); /* IE 9 */
+  // -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+  // -o-transfrom: translateY(-50%);
+  // transform: translateY(-50%);
+  background-image:url(/sources/logo.png);
+  background-size:contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
-/*************** contents ****************************/
+.home_title {
+  position:relative;
+  top:100px;
+  text-align:center;
+  font-weight:700;
+  font-size:40pt;
+}
+
+
+/****HOME LOGIN **********/
+
+.login_box {
+  font-family: 'Ubuntu', sans-serif;
+  position:relative;
+  background:$main_color1;
+  width:400px;
+  // height:300px;
+  border: 5px solid black;
+  border-radius: 5px;
+  left:50%;
+  -ms-transform: translateX(-50%); /* IE 9 */
+  -webkit-transform: translateX(-50%);/* Chrome, Safari, Opera */
+  -o-transfrom: translateX(-50%);
+  transform:translateX(-50%);
+  top:18vh;
+  padding:20px;
+}
+
+.login_input > input {
+  width:100%;
+  height:40px;
+  padding-left: 5px;
+  margin-top:5px;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+.actions input {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size:12pt;
+  width:100%;
+  height:40px;
+  background-color: $button_color1;
+  color:white;
+  margin-top:10px;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+.actions input:hover {
+  background-color: $button_color2;
+  // color:black;
+}
+
+.login_box a {
+  color:black;
+}
+
+.login_box a:hover {
+  color:$button_color1;
+}
+
+.howtouse {
+  position:relative;
+  color:black;
+  text-align: center;
+  top:25vh;
+}
+
+.howtouse img {
+  width:30px;
+  margin-bottom:5px;
+}
+
+.howtouse a {
+  color:black;
+}
+.howtouse a:hover {
+  color:$button_color1;
+}
+
+
+
+/*------------- media -------------*/
+@media (min-width: 768px) {
+  .home_img {
+    // background-image:url(/sources/letsblowbbubblegum2.png);
+  }
+  .home_title {
+    font-size:90pt;
+  }
+}
+
+
+/* CONTENT -------------------------------------------------------------------*/
+
+.button_back {
+  color:black;
+  font-size:15pt;
+  font-weight:700;
+}
+.button_back:hover {
+  color:$main_color2;
+}
+
 .reporter_image{
   width:100px;
   height:100px;
   border:5px solid white;
   margin:auto;
   border-radius: 50%;
-  background-image:url(/sources/profile.png);
+  background-image:url(/sources/profile-3.png);
   background-size:100%;
   text-align:right;
   line-height:9;
@@ -134,14 +418,56 @@ textarea:focus, input:focus, button:focus{
   position:relative;
 }
 
+.article_title {
+  margin-top:0px;
+  text-align:center;
+  font-weight:700;
+  font-size:30pt;
+  color:black;
+}
+
+.mini_info{
+  display:inline-block;
+  height:30px;
+  font-size:12pt;
+  font-weight:600;
+}
+
+.mini_info2 {
+  color: $main_color2;
+}
+
+.mini_icon{
+  height:30px;
+  display:inline-block;
+  margin-top:-4px;
+}
+
+
+.box_contents {
+  margin-top:50px;
+  border-top : 2px solid black;
+  padding-top: 30px;
+}
+
+
+.article_text {
+  // background-color:white;
+  color:black;
+  padding: 20px 30px;
+  font-size:15pt;
+  line-height:1.8;
+}
+
 .article_image {
   position:relative;
   width:100%;
-  border:10px solid white;
+  border:5px solid black;
   margin:auto;
   border-radius: 50%;
   background-size:cover;
   background-position: center center;
+  // padding:20px;
 }
 
 .article_image:before{
@@ -153,7 +479,7 @@ textarea:focus, input:focus, button:focus{
 .reply_gum1_image {
   position:relative;
   width:100%;
-  border:10px solid white;
+  border:5px solid black;
   margin:auto;
   border-radius: 50%;
   background-size:cover;
@@ -168,7 +494,8 @@ textarea:focus, input:focus, button:focus{
 .reply_gum {
   font-weight:100;
   font-size:12pt;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid black;
+  margin-top:15px;
   margin-bottom:15px;
   padding:5px;
   padding-bottom:10px;
@@ -177,7 +504,8 @@ textarea:focus, input:focus, button:focus{
 .reply_gum2 {
   position:relative;
   width:100%;
-  background:white;
+  background:$main_color1;
+  border:5px solid black;
   color:black;
   margin:auto;
   border-radius: 50%;
@@ -189,9 +517,10 @@ textarea:focus, input:focus, button:focus{
 }
 .reply_gum2_text{
   position: absolute;
-  top: 7vh;
+  top: 15vh;
   padding: 20px;
   max-height: 20vh;
+  font-size:15pt;
   overflow: hidden;
 }
 
@@ -203,42 +532,31 @@ textarea:focus, input:focus, button:focus{
   -o-transfrom: translateX(-50%);
   transform: translateX(-50%);
   bottom:10px;
-  background: linear-gradient(to right, $color_pink, $color_purple);
+  background: $button_color1;
   width:50px;
   height:50px;
   border-radius:50%;
   // cursor:pointer;
+}
+.reply_gum3_link:hover {
+  background: $button_color2;
 }
 
 .reply_username {
   font-weight:400;
 }
 
-
-.blowing_input {
-  position:relative;
-  width:500px;
-  height:500px;
-  border:10px solid white;
-  margin:auto;
-  border-radius: 50%;
-  background: linear-gradient(to right, $color_pink, $color_purple);
-  padding: 60px 15px;
-}
-
-// .blowing_input:before{
-// 	content: "";
-// 	display: block;
-// 	padding-top: 100%; 	/* initial ratio of 1:1*/
-// }
-
 #button_form {
   display:none;
+  position:fixed;
+  top:30vh;
 }
-
 #button_form div {
   cursor: pointer;
+  margin-bottom:10px;
+  font-size:20pt;
 }
+#button_form img { width:50px; }
 
 //// modal //////////////////////////////////////////
 @media (min-width: 768px) {
@@ -246,16 +564,32 @@ textarea:focus, input:focus, button:focus{
     margin: 100px auto;
   }
 }
+.modal-backdrop.in {
+  opacity: 0.7;
+}
+.modal-open {
+  padding:0;
+}
+
+.blowing_input {
+  position:relative;
+  width:500px;
+  height:500px;
+  border:5px solid black;
+  margin:auto;
+  border-radius: 50%;
+  background: $main_color1;
+  padding: 60px 15px;
+}
 
 .blowing_mark {
-  background: white;
-  width: 100px;
-  height: 30px;
+  width: 80px;
   top: 15px;
   position: relative;
   color: black;
   float: left;
 }
+.blowing_makr img { width:100%; }
 
 .close {
   font-size: 50px;
@@ -269,7 +603,8 @@ textarea:focus, input:focus, button:focus{
   width:350px;
   height:250px;
   background:white;
-  border:none;
+  border:5px solid black;
+  border-radius:5px;
   padding: 5px 10px;
   color:black;
   margin: auto;
@@ -283,23 +618,20 @@ textarea:focus, input:focus, button:focus{
 }
 
 .input_username {
-  border-bottom: 1px solid $color_pink !important;
+  border-bottom: 2px solid black !important;
 }
 .input_text {
-  height:164px;
+  height:160px;
 }
 .input_submit {
   margin-top:18px;
   width:80px;
   height:80px;
   border-radius: 50%;
-  border:5px solid white;
-  background: linear-gradient(to right, $color_pink, $color_purple);
+  border:5px solid black;
+  background: $button_color1;
+  color:white;
 }
-
-.article_text {
-  background-color:white;
-  color:black;
-  padding:25px;
-  line-height:1.8;
+.input_submit:hover {
+  background: $button_color2;
 }
