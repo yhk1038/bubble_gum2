@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def login
   end
-  
+
   def index
   end
 
@@ -26,6 +26,9 @@ class HomeController < ApplicationController
     end
   end
 
+  def main_pre
+  end
+
   def main
     @post = Post.last
     unless params[:id].nil?
@@ -35,4 +38,5 @@ class HomeController < ApplicationController
 
   def hanseuly
   end
+
 end
