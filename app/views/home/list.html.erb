@@ -1,79 +1,147 @@
+<!-- <%= render partial: '/home/part/nav.html.erb' %> -->
 <style>
-  body {
-    background:none;
-    color:black;
-    height:100vh;
-    text-align: center;
-    background-image:url(/sources/background.png);
-    background-size:cover;
-    background-position:bottom;
-  }
-  /* _navbar.html **************************/
-  .navbar-default { text-align:left; }
-  .my_nav-font_color{ color: #ff007a !important; }
-  .my_nav-font_color:hover{ color: #913dcc !important; }
-  .navbar-default .navbar-toggle .icon-bar { background-color: #ff007a;  }
-  .form-control::-webkit-input-placeholder { color: #ff007a; }
-  .form-control:hover::-webkit-input-placeholder { color:#913dcc; }
-  .form-control:focus {
-    border-bottom: 1px solid #ff007a;
-    color: black;
+  body{
+    /*height:100vh;*/
+    /*overflow-y:hidden;*/
+    /*background:#ffc0cb;*/
   }
 </style>
 
-<!-- <a href="/" style="position:relative;"><img style="height:25px; margin-top:15px;" src="/sources/logo_bubblegum.png"></a>
-<br> -->
+<a href="/home/index"><div class="home_img" style="top:40px;height:70px;"> </div></a>
 
-<nav class="navbar navbar-default my_nav">
-    <div class="container-fluid">
-        <div style="border-bottom: 1px solid #ff007a;">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header col-md-8 col-sm-12">
+<div class="white_bg" style="background:none; opacity: 0.2;">
+  <div class="machine">
+    <div class="clock" id="clockbox"></div>
+    <img class="lever" style="cursor:default;"src="/sources/lever2.png">
+  </div>
+</div>
 
-                <div class="navbar-brand col-md-8 col-sm-5 col-xs-5"><a class="my_nav-font_color" href="#">how to blow bubble?</a></div>
-                <div class="navbar-brand col-md-4 col-sm-5 col-xs-5" style="padding-left:60px"><a class="my_nav-font_color" href="/home/index"><img src="/sources/logo_bubblegum.png" style="height:25px;"></a></div>
-                <div class="col-xs-2" style="right: 0; padding:0">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                </div>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav navbar-right" id="user">
-                    <li><a href="/users/sign_in" class="my_nav-font_color">login</a></li>
-                    <li><a href="/users/sign_up" class="my_nav-font_color">sign up</a></li>
-                </ul>
-
-                <form class="navbar-form navbar-right" role="search">
-                  <span class="glyphicon glyphicon-search" style="color:#ff007a" aria-hidden="true"></span>
-                  <input type="text" class="form-control" placeholder="Search" onkeydown="javascript:if(event.keyCode==13){goPage('1');}">
-                  <!-- <button type="submit" class="search_btn">submit</button> -->
-                </form>
-            </div><!-- /.navbar-collapse -->
-        </div>
-    </div><!-- /.container-fluid -->
-</nav>
-
-
-<div class="clock" id="clockbox"style="margin-top:80px;"></div>
 <!-- <div class="clock">TODAY'S NEWS</div> -->
 
+<!-- <div class="row" style="margin:0;">
+
+  <div class="col-md-3">
+    <a href="/home/main/1">
+      <div class="listbox" style="background-image:url(/sources/news/alphago.jpg);">
+        <div class="listbox2">
+          <h5 class="listbox_title">알파고, 세계 최정상 <br>이세돌 9단을 누르다</h5>
+          <h6 class="listbox_info">2016-03-09</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/home/listpre">
+      <div class="listbox" style="background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);">
+        <div class="listbox2">
+          <h5 class="listbox_title">갤노트7 리콜 파문 확산… <br>애플 최대 반사이익</h5>
+          <h6 class="listbox_info">2016-09-11</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/home/main/3">
+      <div class="listbox" style="background-image:url(http://imgnews.naver.net/image/366/2016/10/16/2016101600213_0_99_20161016121707.jpg?type=w540);">
+        <div class="listbox2">
+          <h5 class="listbox_title">[과학TALK] 화성 개척 선언 머스크·오바마...유전자 조작 미생물 <br>퍼뜨리자는 아이디어까지</h5>
+          <h6 class="listbox_info">2016-10-16</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/home/main/4">
+      <div class="listbox" style="background-image:url(http://img.hani.co.kr/imgdb/resize/2016/0912/00503964_20160912.JPG);">
+        <div class="listbox2">
+          <h5 class="listbox_title">온나라 뒤흔든 지진공포…<br>“아이 안고 부랴부랴 집 밖으로”</h5>
+          <h6 class="listbox_info">2016-09-13</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div> -->
 
 <div class="row" style="margin:0;">
 
   <div class="col-md-3">
-    <div class="listbox">
-      <div class="listbox2">
-        <h2>기사제목</h2>
-        <h5>조회수, 댓글, 버블</h5>
+
+    <a href="/home/main/1">
+      <div class="listbox" style="background-image:url(/sources/news1/alphago.jpg);">
+        <div class="listbox2">
+          <h5 class="listbox_title">알파고, 세계 최정상 <br>이세돌 9단을 누르다</h5>
+          <h6 class="listbox_info">2016-03-09</h6>
+        </div>
       </div>
-    </div>
+    </a>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/home/main/2">
+      <div class="listbox" style="background-image:url(http://img.yonhapnews.co.kr/photo/yna/YH/2016/09/11/PYH2016091107300001300_P2.jpg);">
+        <div class="listbox2">
+          <h5 class="listbox_title">갤노트7 리콜 파문 확산… <br>애플 최대 반사이익</h5>
+          <h6 class="listbox_info">2016-09-11</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/home/main/3">
+      <div class="listbox" style="background-image:url(http://imgnews.naver.net/image/366/2016/10/16/2016101600213_0_99_20161016121707.jpg?type=w540);">
+        <div class="listbox2">
+          <h5 class="listbox_title">[과학TALK] 화성 개척 선언 머스크·오바마...유전자 조작 미생물 <br>퍼뜨리자는 아이디어까지</h5>
+          <h6 class="listbox_info">2016-10-16</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/home/listpre">
+      <div class="listbox" style="background-image:url(http://img.hani.co.kr/imgdb/resize/2016/0912/00503964_20160912.JPG);">
+        <div class="listbox2">
+          <h5 class="listbox_title">온나라 뒤흔든 지진공포…<br>“아이 안고 부랴부랴 집 밖으로”</h5>
+          <h6 class="listbox_info">2016-09-13</h6>
+        </div>
+      </div>
+    </a>
   </div>
 
 </div>
+
+
+<!-- date&time -->
+<script>
+  tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+  tmonth=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
+
+  function GetClock(){
+    var d=new Date();
+    var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+    if(nyear<1000) nyear+=1900;
+    var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+    if(nhour==0){ap="AM";nhour=12;}
+    else if(nhour<12){ap="AM";}
+    else if(nhour==12){ap="PM";}
+    else if(nhour>12){ap="PM";nhour-=12;}
+
+    if(nmin<=9) nmin="0"+nmin;
+    if(nsec<=9) nsec="0"+nsec;
+
+    // document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+    document.getElementById('clockbox').innerHTML=""+nyear+"."+tmonth[nmonth]+"."+ndate+" "+nhour+":"+nmin+":"+nsec+ap+"";
+
+  }
+
+  window.onload=function(){
+  GetClock();
+  setInterval(GetClock,1000);
+  }
+</script>

@@ -11,43 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009094252) do
-
-  create_table "gdjs", force: :cascade do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
-    t.string   "user_name"
-    t.text     "content"
-    t.integer  "like_count"
-    t.integer  "unlike_count"
-    t.string   "img_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
+ActiveRecord::Schema.define(version: 20161016213302) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "user_name"
+    t.string   "reporter_name"
+    t.string   "reporter_mail"
+    t.string   "reporter_phone"
     t.string   "title"
     t.text     "content"
     t.string   "written_at"
+    t.string   "from"
     t.string   "editor_name"
     t.string   "editor_email"
     t.string   "img_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "replies", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.string   "user_name"
+    t.integer  "option_num"
+    t.string   "link"
+    t.string   "location_text"
+    t.text     "location"
     t.text     "content"
-    t.integer  "like_count"
-    t.integer  "unlike_count"
+    t.integer  "like_count",    default: 0
+    t.integer  "unlike_count",  default: 0
     t.string   "img_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "viewcounts", force: :cascade do |t|

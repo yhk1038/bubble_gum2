@@ -63,7 +63,6 @@
 // setInterval(GetClock,1000);
 // }
 
-
 //// Draged TEXT /////////////
 function selectText() {
   var selectionText = "";
@@ -103,3 +102,7 @@ document.onmouseup = function() {
   document.getElementById("locationText3").innerHTML = selectedText;
   document.getElementById("locationText4").innerHTML = selectedText;
 }
+
+
+
+/// Floating div ///////////////

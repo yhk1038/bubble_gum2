@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # root 'home#main'
+
   root 'home#index'
   match "/:controller(/:action(/:id))", :via => [:get, :post]
   post "/post/create", to: "post#create"
