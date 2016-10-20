@@ -20,7 +20,7 @@
       <div class="col-md-6 mini_info" style="text-align:right">
         <img src="/sources/icon/icon-view.png" class="mini_icon"> 조회수 &nbsp;<span class="mini_info2"><%= @view_count %></span>&nbsp;
         <img src="/sources/icon/icon-reply.png" class="mini_icon"> 버블 &nbsp;<span class="mini_info2"><%= @post.replies.count %></span>&nbsp;
-        <img src="/sources/icon/icon-gdj.png" class="mini_icon"> 껌딱지 &nbsp;<span class="mini_info2"></span>%
+        <img src="/sources/icon/icon-gdj.png" class="mini_icon"> 껌딱지 &nbsp;<span class="mini_info2"><%= @post.ggum_ddak_ji_percentage %></span>%
       </div>
       <input type="hidden" id="userId" value="2">
     </div>

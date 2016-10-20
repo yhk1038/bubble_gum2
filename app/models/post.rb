@@ -72,4 +72,53 @@ class Post < ActiveRecord::Base
         
         return post.viewcounts.count
     end
+    
+    def ggum_ddak_ji_percentage
+        content3 = self.content_to_split_span_block
+        content4 = content3
+        content4.gsub!('</span>',' ---- ')
+        content4.gsub!('<span',' ---- ')
+        content4.gsub!('">',' ---- ')
+        content4.gsub!('&nbsp;','')
+        content5 = content4.split(' ---- ')
+        
+        content6 = []
+        i = 0
+        content5.each do |sp|
+            content6 << sp unless sp.include?('span_block')
+        end
+        
+        content7 = []
+        is_gdj = false
+        content6.each do |sp|
+            content7 << sp if is_gdj
+            if sp.include?('ggum_ddak_ji')
+                is_gdj = true
+            else
+                is_gdj = false
+            end
+        end
+        # puts content7
+        # puts ""
+        
+        content8 = content7.join
+        # puts content8
+        # puts content8.length
+        # puts ""
+        
+        content_original = self.content
+        content_original.gsub!('<p',' ---- ')
+        content_original.gsub!('</p>',' ---- ')
+        content_original.gsub!('<br>','')
+        content_original.gsub!('">',' ---- ')
+        content_original = content_original.split(' ---- ')
+        content_original.delete_at(1)
+        content_original = content_original.join
+        # puts content_original
+        # puts ""
+        # puts content_original.length
+        
+        percentage = content8.length.to_f/content_original.length.to_f
+        return (percentage * 100).round(2)
+    end
 end

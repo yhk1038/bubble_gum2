@@ -35,6 +35,7 @@ class HomeController < ApplicationController
     unless params[:id].nil?
       @post = Post.find(params[:id])
     end
+    @content = @post.content_to_split_span_block
   end
 
   def hanseuly
