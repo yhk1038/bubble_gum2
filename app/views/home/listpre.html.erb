@@ -31,7 +31,8 @@
         <a href="/home/main/<%= @post.id %>">
           <div class="a" style="background-image: url('<%= reply.img_url %>');">
             <div class="a2">
-              <div class="a_article"><%= reply.content %></div>
+              <% text = "\" " + reply.location_text + " \" 에 <br>붙은 껌딱지" %>
+              <div class="a_article"><%= text.html_safe %></div>
             </div>
           </div>
         </a>

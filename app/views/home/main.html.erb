@@ -51,8 +51,6 @@
           <!-- article image-->
           <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
 
-
-<!--<a style="cursor:pointer;" class="btn btn-info btn-sm likeReply" num="1">like</a>-->
           <% @post.replies.reorder("like_count desc").each do |reply| %>
             <% if reply.option_num == 0 %>
               <!-- reply1_image -->
@@ -119,7 +117,7 @@
 
   </div> <!--col-md-8-->
 
-
+  <!--for forms-->
   <div class="col-md-2">
     <a class="button_back" href="javascript:history.back()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="top:2px"></span>Back</a><br>
     <!-- Button trigger modal -->
@@ -159,6 +157,7 @@
 
       </div>
     </div>
+    
     <!-- Modal2 : information form tag ----------------------------->
     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -185,6 +184,7 @@
         </div>
       </div>
     </div>
+    
     <!-- Modal3 : news form tag ----------------------------->
     <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -239,7 +239,6 @@
         </div>
       </div>
     </div>
-
 
   </div> <!--col-md-2-->
 

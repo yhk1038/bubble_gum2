@@ -83,7 +83,6 @@ class Post < ActiveRecord::Base
         content5 = content4.split(' ---- ')
         
         content6 = []
-        i = 0
         content5.each do |sp|
             content6 << sp unless sp.include?('span_block')
         end
