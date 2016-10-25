@@ -32,15 +32,25 @@ class Post < ActiveRecord::Base
             j += 1
         end
         
-        k = 1
-        self.replies.reorder("like_count desc").each do |reply|
-            arr3.each do |block|
-                if block.include?(reply.location)
-                    block.gsub!("#{reply.location_text.strip}", "<span class=\"ggum_ddak_ji #{"most_best" if k == 1}\" id=\"#{reply.id}\">#{reply.location_text}</span>")
+        self.replies.map{|s| s.location}.uniq.each do |block_code|
+            k = 1
+            self.replies.where(location: block_code).reorder("like_count desc").each do |reply|
+                arr3.each do |block|
+                    if block.include?(reply.location)
+                        block.gsub!("#{reply.location_text.strip}", "<span class=\"ggum_ddak_ji #{"most_best" if k == 1}\" id=\"#{reply.id}\">#{reply.location_text}</span>")
+                    end
+                end
+                k += 1
+            end
+            
+            best = self.replies.where(location: block_code).reorder("like_count desc").first
+            arr3.each do |block2|
+                if block2.include?(best.location)
+                    block2.gsub!("#{best.location_text.strip}", "#{best.content}")
                 end
             end
-            k += 1
         end
+        
         content3 = arr3.join
         return content3
     end

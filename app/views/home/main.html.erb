@@ -45,16 +45,24 @@
             color: blue;
             font-size: 18px;
           }
+          .in{
+            display: block !important;
+            transition: all .2s;
+          }
+          .out{
+            display: none !important;
+            transition: all .2s;
+          }
         </style>
 
         <div class="col-md-5" style="margin:none; padding:20px 30px">
           <!-- article image-->
-          <div class="article_image" style="background-image:url(<%= @post.img_url %>);"></div>
+          <div class="article_image in" style="background-image:url(<%= @post.img_url %>);" status="in"></div>
 
           <% @post.replies.reorder("like_count desc").each do |reply| %>
             <% if reply.option_num == 0 %>
               <!-- reply1_image -->
-              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+              <div class="reply_gum out" id="gum_<%= reply.id %>" status="original">
                 <div class="reply_gum1_image" style="background-image:url('<%= reply.img_url %>');"></div>
                 <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %><br>
                 <div style="float:right">
@@ -65,7 +73,7 @@
 
             <% elsif reply.option_num == 1 %>
               <!-- reply2&4_information/blahblah-->
-              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+              <div class="reply_gum out" id="gum_<%= reply.id %>" status="original">
                 <div class="reply_gum2">
                   <div class="reply_gum2_text">
                     <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %>
@@ -79,7 +87,7 @@
 
             <% elsif reply.option_num == 2 %>
               <!-- reply3_link-->
-              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+              <div class="reply_gum out" id="gum_<%= reply.id %>" status="original">
                 <div class="reply_gum2">
                   <div class="reply_gum2_text">
                     <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %>
@@ -97,7 +105,7 @@
 
             <% elsif reply.option_num == 3 %>
               <!-- reply2&4_information/blahblah-->
-              <div class="reply_gum" id="gum_<%= reply.id %>" style="display: none;">
+              <div class="reply_gum out" id="gum_<%= reply.id %>" status="original">
                 <div class="reply_gum2">
                   <div class="reply_gum2_text">
                     <span class="reply_username"><%= reply.user_name %> |</span><br><%= reply.content %>

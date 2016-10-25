@@ -20,25 +20,111 @@ $(document).ready(function(){
         $("#gum_" + id).fadeToggle();
     });
     
+    // $(".most_best").hover(function(){
+    //     var status_article_image = $(".article_image").attr("status");
+    //     var id = $(this).attr("id");
+    //     var status_best_reply = $("#gum_" + id).attr("status");
+        
+    //     if (status_article_image == "in"){
+    //         $("#gum_" + id).removeClass("out").addClass("in").attr("attr","").attr("attr","hovered");
+    //         $(".article_image").removeClass("in").addClass("out").attr("attr","").attr("attr","out");
+    //     };
+    // }, function(){
+    //     var status_article_image = $(".article_image").attr("status");
+    //     alert(status_article_image);
+    //     var id = $(this).attr("id");
+    //     var status_best_reply = $("#gum_" + id).attr("status");
+        
+    //     if (status_article_image == "out"){
+    //         $("#gum_" + id).removeClass("in").addClass("out").attr("attr","").attr("attr","original");
+    //         $(".article_image").removeClass("out").addClass("in").attr("attr","").attr("attr","in");
+    //     };
+    // });
     $(".most_best").hover(function(){
+        // article img class starts with "in"
+        // but class of others start with "out" 
+        // if rehover Event assert? (status of Best reply "clicked") act none.
+        
         var id = $(this).attr("id");
-        $(".article_image").hide();
-        $("#gum_" + id).fadeIn();
-        $(".ggum_ddak_ji").click(function(){
-            $("#gum_" + id).hide().attr("status", "in");
-            $(".article_image").fadeIn();
-            var sid = $(this).attr("id");
-            $("#gum_" + sid).fadeIn();
-        })
-    }, function(){
-        var id = $(this).attr("id");
-        $("#gum_" + id).hide();
-        var it = $("#gum" + id).attr("status");
-        // alert(it);
-        $(".article_image").fadeIn();
-        if (it == "in"){
-            $("#gum_" + id).fadeIn();
+        var is_clicked = $("#gum_" + id).attr("status");
+        if (is_clicked == "clicked"){
+            // no action activate.
+        }else{
+            $(".reply_gum").removeClass("in").addClass("out");
+            // GOAL of this Event
+            // 1. Hide (class "out" status "out") article img
+            // 2. New Show (class "in" status "hovered") Best reply
+            
+            $(".article_image").removeClass("in").addClass("out").attr("status","").attr("status","out");
+            $("#gum_" + id).removeClass("out").addClass("in").attr("status", "hovered");
+            // <~~ Success of this GOAL
+            
+            // [Add Event] Direct clicked Event from hover (only case to show replies)
+            $(".ggum_ddak_ji").click(function(){
+                // 1. Remain show(class "in" status "clicked") Best reply
+                // 2. Remain hide(class "out" status "out") article img
+                // 3. New Show (class "in" status "clicked") Other included replies
+                
+                $("#gum_" + id).attr("status","").attr("status","clicked");
+                $(".article_image").removeClass("in").addClass("out").attr("status","").attr("status","out");
+                var ids = $(this).attr("id");
+                $("#gum_" + ids).removeClass("out").addClass("in").attr("status","clicked");
+                
+                var article_status = $(".article_image").attr("status");
+                // [Add Event] Re-Clicked Event to hide all replies
+                $(this).click(function(){
+                    // 1. Hide (class "out" status "") Best reply
+                    // 2. Hide (class "out" status "") all Other replies
+                    // 3. Show (class "in" status "in") article img
+                    
+                    $(".article_image").removeClass("out").addClass("in").attr("status","").attr("status", "in");
+                    $("#gum_" + id).removeClass("in").addClass("out").attr("status","");
+                    $("#gum_" + ids).removeClass("in").addClass("out").attr("status","");
+                    
+                    // <~~ Success of this GOAL
+                });
+            });
         };
+    }, function(){
+        // It can be two casees
+        // At First, Just Hovered status (None Clicked) : (Best reply has status "in")
+        // In the Other hand, Clicked status : (all of status are blank)
+        
+        var id = $(this).attr("id");
+        var status = $("#gum_" + id).attr("status");
+        var article_status = $(".article_image").attr("status");
+        
+        if (status == "hovered"){
+            // case None Clicked : (Best reply has status "hovered")
+            // 1. Hide (class "out") Best reply, and Clear status
+            // 2. Show (class "in") article img
+            
+            $("#gum_" + id).removeClass("in").addClass("out").attr("status", "");
+            $(".article_image").removeClass("out").addClass("in").attr("status", "").attr("status", "in");
+        }else{
+            // case Clicked : (all of status are blank)
+            
+            if (article_status == "in"){
+                // in case of already cleared
+                // Remain Current States
+            }else{
+                // in case of none cleared yet
+                // 1. Hide (class "out") all replies
+                // 2. Show (class "in") article img
+                // $(".in").removeClass("in").addClass("out");
+                // $(".article_image").removeClass("out").addClass("in").attr("status","").attr("status","in");
+            };
+        };
+        
+        
+        
+        
+        
+        // $("#gum_" + id).hide();
+        // $(".article_image").fadeIn();
+        // alert(it);
+        
+        
         
     });
     
